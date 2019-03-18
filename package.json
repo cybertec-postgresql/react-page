@@ -1,6 +1,6 @@
 {
   "private": true,
-  "author": "ORY GmbH",
+  "author": "Cybertec Schönig & Schönig GmbH",
   "license": "GNU Lesser General Public License v3.0",
   "devDependencies": {
     "@babel/cli": "7.2.0",
