@@ -1,6 +1,6 @@
 {
   "name": "@cybertec/ory-editor-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Cybertec Schönig & Schönig GmbH",
   "license": "GNU Lesser General Public License v3.0",
   "main": "./lib/index.js",
@@ -24,7 +24,7 @@
     "react-jss": "^8.6.1"
   },
   "dependencies": {
-    "@cybertec/ory-editor-core": "^0.0.2",
+    "@cybertec/ory-editor-core": "^0.0.3",
     "classnames": "^2.2.5",
     "device.js": "^2.3.0",
     "lodash.throttle": "^4.1.1",
