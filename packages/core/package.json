@@ -1,9 +1,9 @@
 {
-  "name": "ory-editor-core",
-  "version": "0.0.0",
+  "name": "@cybertec/ory-editor-core",
+  "version": "0.0.1",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
-  "author": "ORY GmbH",
+  "author": "Cybertec Schönig & Schönig GmbH",
   "license": "GNU Lesser General Public License v3.0",
   "scripts": {
     "transpile": "babel ./src --out-dir lib --source-maps --copy-files --only **/*.ts,**/*.tsx --extensions .ts,.tsx --ignore **/*.d.ts",

@@ -1,19 +1,11 @@
 {
-  "name": "ory-editor",
-  "version": "0.0.0",
-  "author": "ORY GmbH",
+  "name": "@cybertec/ory-editor",
+  "version": "0.0.1",
+  "author": "Cybertec Schönig & Schönig GmbH",
   "license": "GNU Lesser General Public License v3.0",
   "dependencies": {
-    "ory-editor-core": "0.0.0",
-    "ory-editor-renderer": "0.0.0",
-    "ory-editor-plugins-divider": "0.0.0",
-    "ory-editor-plugins-image": "0.0.0",
-    "ory-editor-plugins-slate": "0.0.0",
-    "ory-editor-plugins-spacer": "0.0.0",
-    "ory-editor-plugins-parallax-background": "0.0.0",
-    "ory-editor-plugins-video": "0.0.0",
-    "ory-editor-plugins-default-native": "0.0.0",
-    "ory-editor-ui": "0.0.0"
+    "ory-editor-core": "0.0.1",
+    "ory-editor-ui": "0.0.1"
   },
   "publishConfig": {
     "access": "public"
