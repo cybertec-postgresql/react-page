@@ -122,23 +122,27 @@ export const purifiedNode = (
   state: RootState,
   props: { id: string; editable: string }
 ): Row | Cell => {
-  const found = node(state, props);
+  const found: Row | AbstractCell<Row> | string[] = node(state, props);
   if (!found) {
     return null;
   }
 
   if ((found as Row).cells) {
-    (found as Row).cells = (found as Row).cells.map(
-      (c: Cell): string => c.id
-      // tslint:disable-next-line:no-any
-    ) as any;
+    (found as Row).cells = (found as Row).cells
+      .sort((a: AbstractCell<Row>, b: AbstractCell<Row>) => a.order - b.order)
+      .map(
+        (c: Cell): string => c.id
+        // tslint:disable-next-line:no-any
+      ) as any;
   }
 
   if ((found as Cell).rows) {
-    (found as Cell).rows = (found as Cell).rows.map(
-      (r: Row): string => r.id
-      // tslint:disable-next-line:no-any
-    ) as any;
+    (found as Cell).rows = (found as Cell).rows
+      .sort((a: Row, b: Row) => a.order - b.order)
+      .map(
+        (r: Row): string => r.id
+        // tslint:disable-next-line:no-any
+      ) as any;
   }
 
   return found;

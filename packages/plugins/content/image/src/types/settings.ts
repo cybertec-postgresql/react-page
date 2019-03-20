@@ -1,4 +1,4 @@
-import { ImageUploadType } from 'ory-editor-ui/lib/ImageUpload';
+import { ImageUploadType } from '@cybertec/ory-editor-ui/lib/ImageUpload';
 import { ImageRendererProps } from './renderer';
 import { ImageControlsProps } from './controls';
 

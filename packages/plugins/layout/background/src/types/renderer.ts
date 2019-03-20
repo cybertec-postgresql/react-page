@@ -1,6 +1,6 @@
 import { BackgroundProps } from './component';
-import { RGBColor } from 'ory-editor-ui/lib/ColorPicker';
-import { ImageLoaded } from 'ory-editor-ui/lib/ImageUpload';
+import { RGBColor } from '@cybertec/ory-editor-ui/lib/ColorPicker';
+import { ImageLoaded } from '@cybertec/ory-editor-ui/lib/ImageUpload';
 
 export interface BackgroundRendererExtraProps {
   backgroundColorPreview?: RGBColor;

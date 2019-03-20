@@ -1,4 +1,4 @@
-import { ImageLoaded, ImageUploaded } from 'ory-editor-ui/lib/ImageUpload';
+import { ImageLoaded, ImageUploaded } from '@cybertec/ory-editor-ui/lib/ImageUpload';
 
 export interface ImageApi {
   handleImageLoaded: (image: ImageLoaded) => void;

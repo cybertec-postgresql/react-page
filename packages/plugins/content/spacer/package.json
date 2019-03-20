@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "classnames": "2.2.6",
-    "ory-editor-core": "0.0.0",
-    "ory-editor-ui": "0.0.0",
+    "@cybertec/ory-editor-core": "0.0.0",
+    "@cybertec/ory-editor-ui": "0.0.0",
     "react-resizable": "1.7.5"
   },
   "devDependencies": {

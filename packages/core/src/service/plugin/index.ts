@@ -280,8 +280,9 @@ export default class PluginService {
       inline,
       size,
       id,
+      order,
     } = state;
-    const newState: EditorState = { id, inline, size };
+    const newState: EditorState = { id, inline, size, order };
 
     const {
       plugin: { name: contentName = null, version: contentVersion = '*' } = {},
@@ -325,10 +326,10 @@ export default class PluginService {
 
   // tslint:disable-next-line:no-any
   serialize = (state: any): EditableType => {
-    const { rows = [], cells = [], content, layout, inline, size, id } = state;
+    const { rows = [], cells = [], content, layout, inline, size, id, order, } = state;
 
     // tslint:disable-next-line:no-any
-    const newState: any = { id, inline, size };
+    const newState: any = { id, inline, size, order };
     if (content && content.plugin) {
       newState.content = {
         plugin: { name: content.plugin.name, version: content.plugin.version },

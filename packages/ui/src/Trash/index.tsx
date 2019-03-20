@@ -109,7 +109,7 @@ class Raw extends React.Component<RawProps> {
         })}
       >
         <Fab color="secondary" disabled={!isOverCurrent}>
-          <Delete />
+          <Delete /> delete
         </Fab>
       </div>
     );

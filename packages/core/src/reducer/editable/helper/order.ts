@@ -20,11 +20,14 @@
  *
  */
 
+import { CellOrder } from '../../../types/editable';
+
 const computeOrder = ({
   rows,
   cells,
-  content: { plugin: { name = '' } = {} } = {},
   id,
+  content: { plugin: { name = '' } = {} } = {},
+  order,
 }: {
   // tslint:disable-next-line:no-any
   rows: Array<any>;
@@ -33,18 +36,21 @@ const computeOrder = ({
   id: string;
   // tslint:disable-next-line:no-any
   content?: { plugin?: any };
+  order?: number;
 }) =>
   [
     [
       {
         id,
         isLeaf: Boolean(name),
+        order,
       },
     ],
     ...(rows || []).map(computeOrder),
     ...(cells || []).map(computeOrder),
     // tslint:disable-next-line:no-any
-  ].reduce((p: Array<any>, n: Array<any>) => [...p, ...n], []);
+  ].reduce((p: Array<any>, n: Array<any>) => [...p, ...n], [])
+  .sort((co1: CellOrder, co2: CellOrder ) => co1.order - co2.order);
 
 // tslint:disable-next-line:no-any
 export const cellOrder = (os: Array<any>) =>

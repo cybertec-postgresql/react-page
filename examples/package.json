@@ -1,9 +1,9 @@
 {
-  "name": "ory-editor-examples",
+  "name": "@cybertec/ory-editor-examples",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ory-editor-core": "0.0.0",
+    "@cybertec/ory-editor-core": "0.0.0",
     "ory-editor-plugins-default-native": "0.0.0",
     "ory-editor-plugins-divider": "0.0.0",
     "ory-editor-plugins-html5-video": "0.0.0",
@@ -14,7 +14,7 @@
     "ory-editor-plugins-spacer": "0.0.0",
     "ory-editor-plugins-video": "0.0.0",
     "ory-editor-renderer": "0.0.0",
-    "ory-editor-ui": "0.0.0",
+    "@cybertec/ory-editor-ui": "0.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "@material-ui/core": "3.6.1",
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts --max_old_space_size=4096 build"
   },
   "browserslist": [
     ">0.2%",

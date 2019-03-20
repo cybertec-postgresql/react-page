@@ -61,11 +61,13 @@ class Inner extends React.PureComponent<EditableComponentState> {
 
   render() {
     const { id, containerWidth, containerHeight, node } = this.props;
+
     if (!node) {
       return null;
     }
 
     const { cells = [] } = node;
+
     return (
       <div className="ory-editable ory-prevent-blur">
         {cells.map((c: string) => (

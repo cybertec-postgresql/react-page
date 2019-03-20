@@ -23,8 +23,8 @@
 import * as React from 'react';
 import Spacer from './Component/index';
 import AspectRatio from '@material-ui/icons/AspectRatio';
-import { ContentPluginProps } from 'ory-editor-core/lib/service/plugin/classes';
-import { ContentPluginConfig } from 'ory-editor-core/lib/service/plugin/classes';
+import { ContentPluginProps } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { ContentPluginConfig } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
 import { SpacerSettings } from './types/settings';
 import { SpacerProps } from './types/component';
 import { SpacerState } from './types/state';
@@ -45,7 +45,7 @@ const createPlugin: (
     IconComponent: <AspectRatio />,
     text: 'Spacer',
     description: 'Resizeable, empty space.',
-  
+
     handleRemoveHotKey: (_: Event, __: ContentPluginProps): Promise<void> =>
       Promise.reject(),
     handleFocusPreviousHotKey: (
@@ -54,7 +54,7 @@ const createPlugin: (
     ): Promise<void> => Promise.reject(),
     handleFocusNextHotKey: (_: Event, __: ContentPluginProps): Promise<void> =>
       Promise.reject(),
-  
+
     // We need this because otherwise we lose hotkey focus on elements like spoilers.
     // This could probably be solved in an easier way by listening to window.document?
     //

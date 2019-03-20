@@ -24,12 +24,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 // The editor core
-import Editor, { Editable, createEmptyState } from 'ory-editor-core';
-import 'ory-editor-core/lib/index.css'; // we also want to load the stylesheets
+import Editor, { Editable, createEmptyState } from '@cybertec/ory-editor-core';
+import '@cybertec/ory-editor-core/lib/index.css'; // we also want to load the stylesheets
 
 // The default ui components
-import { Trash, DisplayModeToggle, Toolbar } from 'ory-editor-ui';
-import 'ory-editor-ui/lib/index.css';
+import { Trash, DisplayModeToggle, Toolbar } from '@cybertec/ory-editor-ui';
+import '@cybertec/ory-editor-ui/lib/index.css';
 
 // The rich text area plugin
 import slate from 'ory-editor-plugins-slate';
@@ -72,8 +72,8 @@ import { HTMLRenderer } from 'ory-editor-renderer';
 // The content state
 import content from './content';
 import './styles.css';
-import { ImageUploadType } from 'ory-editor-ui/lib/ImageUpload';
-import { Plugins } from 'ory-editor-core/lib/service/plugin/classes';
+import { ImageUploadType } from '@cybertec/ory-editor-ui/lib/ImageUpload';
+import { Plugins } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
 
 const fakeImageUploadService: (url: string) => ImageUploadType = (defaultUrl) => (file, reportProgress) => {
   return new Promise((resolve, reject) => {
@@ -150,6 +150,9 @@ ReactDOM.render((
 ), document.getElementById('controls'));
 
 // Render as beautified mark up (html)
-ReactDOM.render(<HTMLRenderer state={content[0]} plugins={plugins} />, document.getElementById('editable-static'));
+ReactDOM.render(
+  <HTMLRenderer state={content[0]} plugins={plugins} />,
+  document.getElementById('editable-static')
+);
 
 editor.trigger.editable.add({ id: '10', cells: [] });

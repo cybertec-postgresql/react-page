@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "@material-ui/lab": "^3.0.0-alpha.30",
-    "ory-editor-core": "0.0.0",
-    "ory-editor-ui": "0.0.0"
+    "@cybertec/ory-editor-core": "0.0.0",
+    "@cybertec/ory-editor-ui": "0.0.0"
   },
   "devDependencies": {},
   "publishConfig": {

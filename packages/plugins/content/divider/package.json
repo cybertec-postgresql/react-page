@@ -24,7 +24,7 @@
     "@material-ui/icons": "^3.0.0"
   },
   "dependencies": {
-    "ory-editor-core": "0.0.0"
+    "@cybertec/ory-editor-core": "0.0.0"
   },
   "publishConfig": {
     "access": "public"

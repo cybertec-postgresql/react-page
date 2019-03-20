@@ -4,10 +4,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Checkbox from '@material-ui/core/Checkbox';
-import { ImageUpload } from 'ory-editor-ui';
+import { ImageUpload } from '@cybertec/ory-editor-ui';
 
-import { BottomToolbar } from 'ory-editor-ui';
-import { darkTheme, default as ThemeProvider } from 'ory-editor-ui/lib/ThemeProvider';
+import { BottomToolbar } from '@cybertec/ory-editor-ui';
+import { darkTheme, default as ThemeProvider } from '@cybertec/ory-editor-ui/lib/ThemeProvider';
 
 const ImageDefaultControls: React.SFC<ImageControlsProps> = props => {
   const { Renderer, handleImageLoaded, handleImageUploaded, handleChange, readOnly, focused } = props;

@@ -26,7 +26,7 @@ import { Portal } from 'react-portal';
 import isHotkey from 'is-hotkey';
 import { NextType } from '../types/next';
 import { Editor, getEventTransfer } from 'slate-react';
-import { BottomToolbar, ThemeProvider } from 'ory-editor-ui';
+import { BottomToolbar, ThemeProvider } from '@cybertec/ory-editor-ui';
 import { placeholder } from '../const';
 import debounce from 'lodash.debounce';
 

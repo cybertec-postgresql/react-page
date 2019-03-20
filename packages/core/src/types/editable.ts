@@ -58,13 +58,14 @@ export type AbstractCell<T> = {
 
   size?: number;
   hover?: string;
-  inline?: string | null; 
+  inline?: string | null;
   focused?: boolean;
   focusSource?: string;
   resizable?: boolean;
   bounds?: { left: number; right: number };
   hasInlineNeighbour?: string;
   levels?: Levels;
+  order?: number;
 };
 
 export type Cell = AbstractCell<Row>;
@@ -157,6 +158,7 @@ export type Row = {
   hasInlineChildren?: boolean;
   levels?: Levels;
   className?: string;
+  order?: number;
 };
 
 export type RowComponetized = {
@@ -196,11 +198,17 @@ export type ComponetizedRow = {
   blurAllCells(): void;
 };
 
+export type CellOrder = {
+  id: string;
+  isLeaf: boolean;
+  order: number;
+};
+
 export type AbstractEditable<T> = {
   id: string;
   config?: Config;
   cells: Array<T>;
-  cellOrder?: Array<{ id: string; isLeaf: boolean }>;
+  cellOrder?: Array<CellOrder>;
 };
 
 export type EditableType = AbstractEditable<Cell>;
