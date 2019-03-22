@@ -123,6 +123,13 @@ export const resizeCells = (
  * @return {[...cell]}
  */
 export const computeSizes = (cells: Array<Cell> = []): Array<Cell> => {
+  if (cells.length > 12) {
+    return cells.map((c: Cell, k: number) => ({
+      ...c,
+      size: 1,
+    }));
+  }
+
   const total = sumSizes(cells);
   if (total === MAX_CELLS_PER_ROW) {
     return cells;

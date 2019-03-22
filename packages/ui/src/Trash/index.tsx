@@ -38,6 +38,7 @@ import {
 } from '@cybertec/ory-editor-core/lib/selector/display';
 import { searchNodeEverywhere } from "@cybertec/ory-editor-core/lib/selector/editable";
 import { RootState } from "@cybertec/ory-editor-core/lib/types/state";
+import { LayoutPlugin, ContentPlugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
 
 import { createStructuredSelector } from 'reselect';
 
@@ -118,12 +119,11 @@ class Raw extends React.Component<RawProps> {
 
 const types = ({ editor }: { editor: Editor }) => {
   const plugins = [
-    ...Object.keys(editor.plugins.plugins.layout),
-    ...Object.keys(editor.plugins.plugins.content),
+    ...editor.plugins.plugins.layout,
+    ...editor.plugins.plugins.content,
   ].map(
-    (p: string) =>
-      editor.plugins.plugins.content[p].name ||
-      editor.plugins.plugins.layout[p].name
+    (p: LayoutPlugin | ContentPlugin) =>
+      p.name
   );
 
   if (editor.plugins.hasNativePlugin()) {
