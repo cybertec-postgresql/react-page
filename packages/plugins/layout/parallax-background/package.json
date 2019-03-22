@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "ory-editor-plugins-parallax-background",
   "version": "0.8.4",
   "main": "./lib/index.js",
@@ -27,5 +28,6 @@
   },
   "publishConfig": {
     "access": "private"
-  }
+  },
+  "gitHead": "d9be57c27c258c99c84512213d6fb49863b81c20"
 }

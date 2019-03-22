@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "ory-editor-plugins-slate",
   "version": "0.8.4",
   "main": "./lib/index.js",
@@ -49,5 +50,6 @@
   "devDependencies": {
     "@types/is-hotkey": "0.1.1",
     "@types/lodash.debounce": "4.0.4"
-  }
+  },
+  "gitHead": "d9be57c27c258c99c84512213d6fb49863b81c20"
 }
