@@ -31,6 +31,6 @@
   "devDependencies": {
   },
   "publishConfig": {
-    "access": "public"
+    "access": "private"
   }
 }

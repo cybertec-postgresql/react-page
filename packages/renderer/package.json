@@ -29,6 +29,6 @@
     "@types/slate-react": "^0.12.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "private"
   }
 }
