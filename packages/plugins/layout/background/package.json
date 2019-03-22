@@ -1,6 +1,6 @@
 {
   "name": "ory-editor-plugins-background",
-  "version": "0.0.0",
+  "version": "0.8.4",
   "main": "./lib/index.js",
   "author": "ORY GmbH",
   "license": "GNU Lesser General Public License v3.0",
@@ -22,11 +22,10 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "@material-ui/lab": "^3.0.0-alpha.30",
-    "@cybertec/ory-editor-core": "0.0.0",
-    "@cybertec/ory-editor-ui": "0.0.0"
+    "@cybertec/ory-editor-core": "^0.8.4",
+    "@cybertec/ory-editor-ui": "^0.8.4",
+    "@material-ui/lab": "^3.0.0-alpha.30"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "private"
   }

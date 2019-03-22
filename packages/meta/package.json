@@ -1,6 +1,6 @@
 {
   "name": "@cybertec/ory-editor",
-  "version": "0.8.2",
+  "version": "0.8.4",
   "author": "Cybertec Schönig & Schönig GmbH",
   "license": "GNU Lesser General Public License v3.0",
   "dependencies": {

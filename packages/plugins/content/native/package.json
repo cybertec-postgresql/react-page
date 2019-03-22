@@ -1,6 +1,6 @@
 {
   "name": "ory-editor-plugins-default-native",
-  "version": "0.0.0",
+  "version": "0.8.4",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "author": "ORY GmbH",
@@ -19,7 +19,7 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "@cybertec/ory-editor-core": "0.0.0"
+    "@cybertec/ory-editor-core": "^0.8.4"
   },
   "publishConfig": {
     "access": "private"

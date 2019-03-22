@@ -1,6 +1,6 @@
 {
   "name": "ory-editor-renderer",
-  "version": "0.0.0",
+  "version": "0.8.4",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "author": "ORY GmbH",
@@ -19,14 +19,14 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "@cybertec/ory-editor-core": "0.0.0"
+    "@cybertec/ory-editor-core": "^0.8.4",
+    "classnames": "^2.2.5"
   },
   "devDependencies": {
-    "ory-editor-plugins-slate": "0.0.0",
     "@types/react": "16.7.17",
     "@types/slate": "^0.33.4",
-    "@types/slate-react": "^0.12.1"
+    "@types/slate-react": "^0.12.1",
+    "ory-editor-plugins-slate": "^0.8.4"
   },
   "publishConfig": {
     "access": "private"

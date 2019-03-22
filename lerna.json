@@ -1,13 +1,13 @@
 {
   "lerna": "3.6.0",
   "packages": [
+    "examples",
     "packages/core",
-    "packages/renderer",
-    "packages/ui",
     "packages/meta",
     "packages/plugins/content/*",
     "packages/plugins/layout/*",
-    "examples"
+    "packages/renderer",
+    "packages/ui"
   ],
-  "version": "0.8.3"
+  "version": "0.8.4"
 }
