@@ -28,6 +28,10 @@
   /* will-change: transform; */
 }
 
+.ory-cell-dashed-border {
+  border: 1px dashed #000;
+}
+
 .ory-cell-draggable-overlay {
   position: absolute;
   top: 0;

@@ -83,7 +83,7 @@ const target = {
     const { node: n } = maybeNode;
 
     if (props.onRemoveCell) {
-      props.onRemoveCell(n.content.state);
+      props.onRemoveCell(n.content ? n.content.state : n.layout.state);
     }
   },
 };

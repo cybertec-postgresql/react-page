@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "ory-editor-plugins-slate",
-  "version": "0.8.6",
+  "version": "0.0.0",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "author": "ORY GmbH",
@@ -24,8 +24,8 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "@cybertec/ory-editor-core": "^0.8.6",
-    "@cybertec/ory-editor-ui": "^0.8.6",
+    "@cybertec/ory-editor-core": "0.0.0",
+    "@cybertec/ory-editor-ui": "0.0.0",
     "@guestbell/slate-common": "0.3.0",
     "@guestbell/slate-edit-blockquote": "0.3.0",
     "@guestbell/slate-edit-list": "0.3.0",

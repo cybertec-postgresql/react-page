@@ -32,6 +32,32 @@ const content: EditableType[] = [
         'size': 12,
         'rows': [
           {
+            'id': 'dad71b07-5d3e-4aaf-9c8a-0e06a346da52',
+            'order': 1,
+            'cells': [
+              {
+                'id': '6c11a0d6-6857-4917-9692-eae056fd9400',
+                'inline': null,
+                'size': 12,
+                'layout': {
+                  'plugin': {
+                    'name': 'ory/editor/core/layout/background',
+                    'version': '0.0.1',
+                  },
+                  'state': {
+                    'background': '/images/sea-bg.jpg',
+                  },
+                },
+                'rows': [
+                  {
+                    'id': 'c9d1ff2a-f7d1-410c-b275-9dd6200113c8',
+                    'cells': [],
+                  },
+                ],
+              },
+            ],
+          },
+          {
             'id': 'd813d094-215a-43ec-bcdd-d5fd6258b915',
             'order': 2,
             'cells': [
@@ -211,7 +237,7 @@ const content: EditableType[] = [
           },
           {
             'id': 'ec4474f6-a418-4628-831b-03a7e64fd500',
-            'order': 1,
+            'order': 3,
             'cells': [
               {
                 'id': '78269a8f-7b29-4703-b107-b399eac3e365',
