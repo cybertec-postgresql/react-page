@@ -46,7 +46,7 @@ class Resizable extends React.PureComponent<ResizableProps, ResizableState> {
     this.state = {
       stepWidth: sw,
       width: props.node.size * sw,
-      steps: props.steps - 1 || 11,
+      steps: props.steps || 12,
     };
   }
 
@@ -80,7 +80,7 @@ class Resizable extends React.PureComponent<ResizableProps, ResizableState> {
         onResize={this.onResize}
         minConstraints={inline ? null : [this.state.stepWidth, Infinity]}
         maxConstraints={
-          inline ? null : [bounds.right * this.state.stepWidth, Infinity]
+          inline ? null : [(bounds.right || bounds.left)  * this.state.stepWidth, Infinity]
         }
         draggableOpts={{ axis: 'none', offsetParent: document.body }}
         width={this.state.width}

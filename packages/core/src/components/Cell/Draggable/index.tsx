@@ -84,7 +84,6 @@ class Draggable extends React.PureComponent<Props> {
       <div
         className={classNames('ory-cell-draggable', {
           'ory-cell-draggable-is-dragging': isDragging,
-          'ory-cell-dashed-border': isLayoutMode,
         })}
       >
         <div

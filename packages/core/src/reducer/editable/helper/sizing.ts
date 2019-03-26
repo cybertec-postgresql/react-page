@@ -100,16 +100,8 @@ export const resizeCells = (
   cells: Array<Cell> = [],
   { id, size }: Cell
 ): Array<Cell> => {
-  let prev = 0;
   return cells.map((c: Cell) => {
-    if (prev > 0) {
-      const ret = { ...c, size: c.size + prev - size };
-      prev = 0;
-      return ret;
-    } else if (id === c.id) {
-      if (!c.inline) {
-        prev = c.size;
-      }
+    if (id === c.id) {
       return { ...c, size };
     }
     return c;
@@ -123,23 +115,9 @@ export const resizeCells = (
  * @return {[...cell]}
  */
 export const computeSizes = (cells: Array<Cell> = []): Array<Cell> => {
-  if (cells.length > 12) {
-    return cells.map((c: Cell, k: number) => ({
-      ...c,
-      size: 1,
-    }));
-  }
 
-  const total = sumSizes(cells);
-  if (total === MAX_CELLS_PER_ROW) {
-    return cells;
-  }
-
-  const count = cells.length;
-  const sizePerCell = Math.floor(MAX_CELLS_PER_ROW / count);
-  const spaceLeft = MAX_CELLS_PER_ROW - sizePerCell * (count - 1);
   return cells.map((c: Cell, k: number) => ({
     ...c,
-    size: k === count - 1 ? spaceLeft : sizePerCell,
+    size: c.size ? c.size : 12,
   }));
 };

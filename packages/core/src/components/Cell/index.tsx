@@ -72,7 +72,8 @@ class Cell extends React.PureComponent<CellProps> {
       rowWidth,
       rowHeight,
       updateDimensions,
-      node: { inline, resizable, hasInlineNeighbour, focused },
+      node: { inline, resizable, hasInlineNeighbour, focused, content },
+      isResizeMode
     } = this.props;
 
     return (
@@ -87,7 +88,7 @@ class Cell extends React.PureComponent<CellProps> {
         })}
         onClick={stopClick(this.props.isEditMode)}
       >
-        {resizable && this.props.isResizeMode ? (
+        {content && isResizeMode ? (
           <Resizable
             {...this.props}
             id={id}
