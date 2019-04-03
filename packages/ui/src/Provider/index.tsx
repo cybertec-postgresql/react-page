@@ -25,10 +25,15 @@ import { Editor } from '@cybertec/ory-editor-core/lib';
 import dragDropContext from '@cybertec/ory-editor-core/lib/components/DragDropContext';
 import ThemeProvider from '../ThemeProvider/index';
 
+export interface WidgetGroup {
+  name: string;
+  icon?: JSX.Element;
+}
+
 export interface ProviderProps {
   editor: Editor;
   editableID?: string;
-  widgetGroups?: string[];
+  widgetGroups?: WidgetGroup[];
   onRemoveCell?: (state: any) => void;
   onChangeEditable?: (state: any) => void;
 }

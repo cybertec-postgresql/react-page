@@ -49,8 +49,6 @@ import { FocusCellAction } from './../../actions/cell/core';
 import { BlurAllCellsAction } from './../../actions/cell/core';
 import { RootState } from '../../selector';
 
-import dimensions from '../Dimensions';
-
 const gridClass = ({ node: { size }, ...rest }: ComponetizedCell): string => {
   if (rest.isPreviewMode || rest.isEditMode) {
     return `ory-cell-${

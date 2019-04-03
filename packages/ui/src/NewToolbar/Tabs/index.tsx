@@ -3,8 +3,11 @@ import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
+import GeneralIcon from '@material-ui/icons/Language';
 
 import { ContentPlugin, LayoutPlugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+
+import { WidgetGroup } from '../../Provider';
 
 import VerticalTabs from './VerticalTabs';
 import TabIndicator from '../Tab/TabIndicator';
@@ -35,7 +38,7 @@ const styles = ({}) => ({
 type TabsProps = {
   content: ContentPlugin[];
   layout: LayoutPlugin[];
-  widgetGroups: string[];
+  widgetGroups: WidgetGroup[];
 } & WithStyles<typeof styles>;
 
 interface TabsState {
@@ -57,7 +60,7 @@ class Tabs extends React.Component<TabsProps, TabsState> {
 
     const widgets = [...content, ...layout].sort((a, b) => a.text.localeCompare(b.text));
     const groupedWidgets = activeTab !== -1 &&
-      widgets.filter((c) => c.group === widgetGroups[activeTab])
+      widgets.filter((c) => c.group === widgetGroups[activeTab].name)
         .map((plugin: ContentPlugin | LayoutPlugin, index) => (
           <TabContent key={index} plugin={plugin} />
         ));
@@ -78,11 +81,11 @@ class Tabs extends React.Component<TabsProps, TabsState> {
             indicatorColor="secondary"
             textColor="secondary"
           >
-            {widgetGroups.map((widgetName: string, index) => (
-              <TabIndicator key={index} label={widgetName.toUpperCase()} />
+            {widgetGroups.map((widget: WidgetGroup, index) => (
+              <TabIndicator key={index} label={widget.name.toUpperCase()} icon={widget.icon} />
             ))}
 
-            <TabIndicator label="General" value={-1} />
+            <TabIndicator label="General" value={-1} icon={<GeneralIcon />} />
           </VerticalTabs>
           </Grid>
           <Grid item={true} xs={8} className={classes.tabContent}>

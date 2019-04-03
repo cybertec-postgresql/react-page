@@ -12,7 +12,7 @@ import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
 
 import Tabs from './Tabs';
 import Provider from '../Provider/index';
-import { ProviderProps } from './../Provider/index';
+import { ProviderProps, WidgetGroup } from './../Provider/index';
 
 const styles = ({}) => ({
   drawer: {
@@ -25,7 +25,7 @@ type Props = {
   editor: Editor;
   noPluginFoundContent: JSX.Element | string;
   drawerWidth: string;
-  widgetGroups?: string[];
+  widgetGroups?: WidgetGroup[];
 } & WithStyles<typeof styles>;
 
 interface State {
