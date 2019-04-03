@@ -168,6 +168,11 @@ export type PluginProps<
    */
   version: string;
 
+  /**
+   * @member the plugin's group
+   */
+  group?: string;
+
   Component?: PluginComponentType<
     PluginProps<StateT, ExtraPropsT> & ExtraPropsT
   >;
@@ -213,6 +218,8 @@ export type PluginProps<
   blur?: (id: string) => void;
 
   editable?: string;
+
+  handleResize?(size: number, state: object): void;
   /**
    * Should be called with the new state if the plugin's state changes.
    *
@@ -310,6 +317,11 @@ export class Plugin<T = any, ExtraProps = {}> {
    * @member the text that will be shown alongside the icon in the toolbar.
    */
   text: string;
+
+  /**
+   * @member group of plugin.
+   */
+  group: string;
   // tslint:disable-next-line:no-any
   constructor(config: PluginConfig<T, ExtraProps>) {
     const {
@@ -322,11 +334,13 @@ export class Plugin<T = any, ExtraProps = {}> {
       serialize,
       unserialize,
       description,
+      group,
       handleRemoveHotKey,
       handleFocusNextHotKey,
       handleFocusPreviousHotKey,
       handleFocus,
       handleBlur,
+      handleResize,
       reducer,
       migrations,
     } = config;
@@ -348,6 +362,7 @@ export class Plugin<T = any, ExtraProps = {}> {
     this.description = description;
     this.config = config;
     this.migrations = migrations ? migrations : [];
+    this.group = group;
 
     this.serialize = serialize ? serialize.bind(this) : this.serialize;
     this.unserialize = unserialize ? unserialize.bind(this) : this.unserialize;
@@ -362,6 +377,7 @@ export class Plugin<T = any, ExtraProps = {}> {
       : this.handleFocusPreviousHotKey;
     this.handleFocus = handleFocus ? handleFocus.bind(this) : this.handleFocus;
     this.handleBlur = handleBlur ? handleBlur.bind(this) : this.handleBlur;
+    this.handleResize = handleResize ? handleResize.bind(this) : this.handleResize;
     this.reducer = reducer ? reducer.bind(this) : this.reducer;
   }
 
@@ -435,6 +451,13 @@ export class Plugin<T = any, ExtraProps = {}> {
    * @param props
    */
   handleBlur = (props: ContentPluginProps): void => null;
+
+  /**
+   * This function will be called when one of the plugin's cell is resized.
+   *
+   * @param size: number
+   */
+  handleResize = (size: number): void => null;
 
   /**
    * Specify a custom reducer for the plugin's cell.

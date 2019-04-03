@@ -49,6 +49,8 @@ import { FocusCellAction } from './../../actions/cell/core';
 import { BlurAllCellsAction } from './../../actions/cell/core';
 import { RootState } from '../../selector';
 
+import dimensions from '../Dimensions';
+
 const gridClass = ({ node: { size }, ...rest }: ComponetizedCell): string => {
   if (rest.isPreviewMode || rest.isEditMode) {
     return `ory-cell-${
@@ -72,8 +74,7 @@ class Cell extends React.PureComponent<CellProps> {
       rowWidth,
       rowHeight,
       updateDimensions,
-      node: { inline, resizable, hasInlineNeighbour, focused, content },
-      isResizeMode
+      node: { inline, hasInlineNeighbour, focused },
     } = this.props;
 
     return (
@@ -88,7 +89,7 @@ class Cell extends React.PureComponent<CellProps> {
         })}
         onClick={stopClick(this.props.isEditMode)}
       >
-        {content && isResizeMode ? (
+        {id !== "1-1" && this.props.isResizeMode ? (
           <Resizable
             {...this.props}
             id={id}
@@ -99,10 +100,10 @@ class Cell extends React.PureComponent<CellProps> {
             steps={12}
             onChange={this.props.resizeCell}
           >
-            <Inner {...this.props} styles={null} />
+            <Inner {...this.props} />
           </Resizable>
         ) : (
-          <Inner {...this.props} styles={null} />
+          <Inner {...this.props} />
         )}
       </div>
     );

@@ -51,6 +51,7 @@ class Resizable extends React.PureComponent<ResizableProps, ResizableState> {
   }
 
   onResize = (event: Event, { size }: { size: { width: number } }) => {
+    const { content, layout } = this.props.node;
     const newSize = widthToSize(this.state, this.props, size);
     if (!newSize) {
       console.warn('Expected resize event to yield a valid size, but got', {
@@ -62,13 +63,25 @@ class Resizable extends React.PureComponent<ResizableProps, ResizableState> {
       return;
     }
 
-    this.props.onChange(newSize);
-    this.setState({ width: newSize * this.state.stepWidth });
+    const width = newSize * this.state.stepWidth;
+
+    if (this.state.width !== width) {
+      this.props.onChange(newSize);
+      this.setState({ width });
+
+      if (content) {
+        content.plugin.handleResize &&
+          content.plugin.handleResize(newSize, content.state);
+      } else if (layout) {
+        layout.plugin.handleResize &&
+          layout.plugin.handleResize(newSize, layout.state);
+      }
+    }
   }
 
   render() {
     const {
-      node: { bounds, inline },
+      node: { inline },
       children,
     } = this.props;
 
@@ -80,7 +93,7 @@ class Resizable extends React.PureComponent<ResizableProps, ResizableState> {
         onResize={this.onResize}
         minConstraints={inline ? null : [this.state.stepWidth, Infinity]}
         maxConstraints={
-          inline ? null : [(bounds.right || bounds.left)  * this.state.stepWidth, Infinity]
+          null
         }
         draggableOpts={{ axis: 'none', offsetParent: document.body }}
         width={this.state.width}

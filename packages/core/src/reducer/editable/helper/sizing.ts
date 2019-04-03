@@ -44,8 +44,8 @@ export const computeBounds = (cells: Array<Cell> = []): Array<Cell> =>
     (c: Cell, k: number): Cell => ({
       ...c,
       bounds: {
-        left: k > 0 ? cells[k - 1].size + c.size - 1 : 0,
-        right: k === cells.length - 1 ? 0 : c.size - 1 + cells[k + 1].size,
+        left: 12,
+        right: 12,
       },
     })
   );

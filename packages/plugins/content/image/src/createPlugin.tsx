@@ -43,6 +43,8 @@ const createPlugin = (
     isInlineable: true,
     description: 'Loads an image from an url.',
 
+    group: 'advanced',
+
     handleRemoveHotKey: (_: Event, __: ContentPluginProps): Promise<void> =>
       Promise.reject(),
     handleFocusPreviousHotKey: (

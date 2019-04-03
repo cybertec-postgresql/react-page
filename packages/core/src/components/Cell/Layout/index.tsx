@@ -103,6 +103,8 @@ class Layout extends React.PureComponent<ComponetizedCell> {
       node: { rows = [], layout, focused },
       editable,
       ancestors = [],
+      rowHeight,
+      rowWidth,
     }: ComponetizedCell = this.props;
     const { plugin, state } = layout;
     const { Component, version } = plugin;
@@ -150,6 +152,8 @@ class Layout extends React.PureComponent<ComponetizedCell> {
               ancestors={[...ancestors, id]}
               key={r}
               id={r}
+              containerWidth={rowWidth}
+              containerHeight={rowHeight}
             />
           ))}
         </Component>

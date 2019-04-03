@@ -33,6 +33,8 @@ class Rows extends React.PureComponent<Partial<ComponetizedCell>> {
       editable,
       id,
       ancestors = [],
+      rowHeight,
+      rowWidth,
     } = this.props;
 
     return (
@@ -43,6 +45,8 @@ class Rows extends React.PureComponent<Partial<ComponetizedCell>> {
             ancestors={[...ancestors, id]}
             id={r}
             key={r}
+            containerHeight={rowHeight}
+            containerWidth={rowWidth}
           />
         ))}
       </div>

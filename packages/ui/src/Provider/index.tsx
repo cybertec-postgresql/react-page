@@ -27,7 +27,10 @@ import ThemeProvider from '../ThemeProvider/index';
 
 export interface ProviderProps {
   editor: Editor;
+  editableID?: string;
+  widgetGroups?: string[];
   onRemoveCell?: (state: any) => void;
+  onChangeEditable?: (state: any) => void;
 }
 
 class Provider extends React.Component<ProviderProps> {

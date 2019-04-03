@@ -19,21 +19,25 @@
  * @author Aeneas Rekkas <aeneas+oss@aeneas.io>
  *
  */
-import Trash from './Trash/index';
-import Toolbar from './Toolbar/index';
-import DisplayModeToggle from './DisplayModeToggle/index';
-import BottomToolbar from './BottomToolbar/index';
-import ThemeProvider from './ThemeProvider/index';
-import ImageUpload from './ImageUpload/index';
-import ColorPicker, { colorToString } from './ColorPicker/index';
+import EditorUI from './EditorUI';
+import Trash from './Trash';
+import Toolbar from './Toolbar';
+import NewToolbar from './NewToolbar';
+import DisplayModeToggle from './DisplayModeToggle';
+import BottomToolbar from './BottomToolbar';
+import ThemeProvider from './ThemeProvider';
+import ImageUpload from './ImageUpload';
+import ColorPicker, { colorToString } from './ColorPicker';
 
 export {
   Trash,
   Toolbar,
+  NewToolbar,
   DisplayModeToggle,
   BottomToolbar,
   ThemeProvider,
   ImageUpload,
   ColorPicker,
-  colorToString
+  colorToString,
+  EditorUI
 };
