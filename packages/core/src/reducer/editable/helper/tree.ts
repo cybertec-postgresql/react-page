@@ -33,6 +33,7 @@ import {
   optimizeCells
 } from './optimize';
 import { computeDropLevels } from './level';
+import { computeDropParent } from './parent';
 import { Cell, Row } from '../../../types/editable';
 
 export const decorate = (cells: Array<Cell> = []): Array<Cell> =>
@@ -52,6 +53,6 @@ export const decorate = (cells: Array<Cell> = []): Array<Cell> =>
         );
       }
 
-      return computeDropLevels(optimizeCell(cell));
+      return computeDropParent(computeDropLevels(optimizeCell(cell)));
     }
   );
