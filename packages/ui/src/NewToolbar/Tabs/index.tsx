@@ -94,7 +94,7 @@ class Tabs extends React.Component<TabsProps, TabsState> {
 
               {groupedWidgets}
 
-              {generalWidgets}
+              {generalWidgets.length && generalWidgets}
             </Grid>
           </Grid>
       </Grid>

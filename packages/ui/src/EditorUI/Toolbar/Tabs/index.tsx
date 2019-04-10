@@ -5,6 +5,8 @@ import { withStyles, WithStyles } from '@material-ui/core/styles';
 
 import { ContentPlugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
 
+import { WidgetGroup } from '../../../Provider';
+
 import VerticalTabs from './VerticalTabs';
 import TabIndicator from '../Tab/TabIndicator';
 import TabContent from '../Tab/TabContent';
@@ -31,7 +33,7 @@ const styles = ({}) => ({
 
 type TabsProps = {
   content: ContentPlugin[];
-  widgetGroups: string[];
+  widgetGroups: WidgetGroup[];
 } & WithStyles<typeof styles>;
 
 interface TabsState {
@@ -55,7 +57,7 @@ class Tabs extends React.Component<TabsProps, TabsState> {
       <Grid container={true}  className={classes.drawerContentContainer}>
         <Grid item={true} xs={9} className={classes.tabContent}>
           <Grid container={true} spacing={8}>
-            {content.filter((c: ContentPlugin) => c.group === widgetGroups[activeTab])
+            {content.filter((c: ContentPlugin) => c.group === widgetGroups[activeTab].name)
               .map((plugin: ContentPlugin, index) => {
                 return <TabContent key={index} plugin={plugin} />;
               })}
@@ -73,8 +75,8 @@ class Tabs extends React.Component<TabsProps, TabsState> {
             indicatorColor="secondary"
             textColor="secondary"
           >
-            {widgetGroups.map((widgetName: string) => (
-              <TabIndicator label={widgetName.toUpperCase()} />
+            {widgetGroups.map((widget: WidgetGroup) => (
+              <TabIndicator label={widget.name.toUpperCase()} />
             ))}
 
             <TabIndicator label="General" />

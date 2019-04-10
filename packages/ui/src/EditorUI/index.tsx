@@ -29,7 +29,7 @@ import { withStyles, WithStyles } from '@material-ui/core/styles';
 import { Editor, Editable } from '@cybertec/ory-editor-core/lib';
 import { isInsertMode } from '@cybertec/ory-editor-core/lib/selector/display';
 
-import Provider, { ProviderProps }  from '../Provider/index';
+import Provider, { ProviderProps, WidgetGroup }  from '../Provider/index';
 
 import Toolbar from './Toolbar';
 
@@ -37,7 +37,7 @@ type Props = {
   isInsertMode: boolean;
   editor: Editor;
   drawerWidth: string;
-  widgetGroups?: string[];
+  widgetGroups?: WidgetGroup[];
   editableID?: string;
   onChangeEditable?: (state: any) => void;
 } & WithStyles<typeof styles>;

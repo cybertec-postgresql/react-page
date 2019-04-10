@@ -32,6 +32,8 @@ import { isInsertMode } from '@cybertec/ory-editor-core/lib/selector/display';
 import { Editor } from '@cybertec/ory-editor-core/lib';
 import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
 
+import { WidgetGroup } from '../../Provider';
+
 import Tabs from './Tabs';
 
 const styles = ({}) => ({
@@ -46,7 +48,7 @@ type Props = {
   editor: Editor;
   noPluginFoundContent: JSX.Element | string;
   drawerWidth: string;
-  widgetGroups?: string[];
+  widgetGroups?: WidgetGroup[];
 } & WithStyles;
 
 interface ToolbarState {
