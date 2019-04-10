@@ -25,6 +25,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { createStructuredSelector } from 'reselect';
+import Grid from "@material-ui/core/Grid";
 
 import Inner from './Inner';
 import { editableConfig, node, purifiedNode, NodeProps } from '../../selector/editable';
@@ -49,7 +50,7 @@ import { FocusCellAction } from './../../actions/cell/core';
 import { BlurAllCellsAction } from './../../actions/cell/core';
 import { RootState } from '../../selector';
 
-const gridClass = ({ node: { size }, ...rest }: ComponetizedCell): string => {
+/*const gridClass = ({ node: { size }, ...rest }: ComponetizedCell): string => {
   if (rest.isPreviewMode || rest.isEditMode) {
     return `ory-cell-${
       rest.isPreviewMode || rest.isEditMode ? 'sm' : 'xs'
@@ -57,7 +58,7 @@ const gridClass = ({ node: { size }, ...rest }: ComponetizedCell): string => {
   }
 
   return `ory-cell-xs-${size || 12}`;
-};
+};*/
 
 const stopClick = (_isEditMode: boolean) => (
   e: React.MouseEvent<HTMLDivElement>
@@ -72,12 +73,14 @@ class Cell extends React.PureComponent<CellProps> {
       rowWidth,
       rowHeight,
       updateDimensions,
-      node: { inline, hasInlineNeighbour, focused },
+      node: { inline, hasInlineNeighbour, focused, size },
     } = this.props;
 
     return (
-      <div
-        className={classNames('ory-cell', gridClass(this.props), {
+      <Grid
+        item={true}
+        xs={size as any}
+        className={classNames({
           'ory-cell-has-inline-neighbour': hasInlineNeighbour,
           [`ory-cell-inline-${inline || ''}`]: inline,
           'ory-cell-focused': focused,
@@ -103,7 +106,7 @@ class Cell extends React.PureComponent<CellProps> {
         ) : (
           <Inner {...this.props} />
         )}
-      </div>
+      </Grid>
     );
   }
 }

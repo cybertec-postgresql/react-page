@@ -22,6 +22,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import Grid from '@material-ui/core/Grid';
 
 import Cell from '../Cell';
 import { ComponetizedRow } from '../../types/editable';
@@ -34,7 +35,8 @@ const Inner = ({
   blurAllCells,
   containerWidth,
 }: ComponetizedRow) => (
-  <div
+  <Grid
+    container={true}
     className={classNames('ory-row', {
       'ory-row-is-hovering-this': Boolean(hover),
       [`ory-row-is-hovering-${hover || ''}`]: Boolean(hover),
@@ -52,7 +54,7 @@ const Inner = ({
         id={c}
       />
     ))}
-  </div>
+  </Grid>
 );
 
 export default Inner;
