@@ -111,7 +111,7 @@ class Layout extends React.PureComponent<ComponetizedCell> {
       rowWidth,
     }: ComponetizedCell = this.props;
     const { plugin, state } = layout;
-    const { Component, version } = plugin;
+    const { Component, version, name } = plugin;
     const { focusCell, blurCell } = this.props;
 
     let focusProps;
