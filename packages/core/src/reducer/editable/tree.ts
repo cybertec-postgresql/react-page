@@ -55,13 +55,13 @@ import { Cell, Row } from '../../types/editable';
 import { AnyAction } from 'redux';
 import { CellHoverAction } from './../../actions/cell/drag';
 
-const inner = (cb: Function, action: Object) => (state: Object) =>
-  cb(state, action);
+const inner = (cb: Function, action: Object, config: any) => (state: Object) =>
+  cb(state, action, config);
 const identity = (state: Cell) => state;
 
-export const cell = (s: Cell, a: AnyAction): Cell =>
+export const cell = (s: Cell, a: AnyAction, c: any): Cell =>
   optimizeCell(
-    ((state: Cell, action: AnyAction): Cell => {
+    ((state: Cell, action: AnyAction, config: any): Cell => {
       const reduce = () => {
         const content = pathOr(
           identity,
@@ -75,7 +75,7 @@ export const cell = (s: Cell, a: AnyAction): Cell =>
             {
               ...state,
               hover: null,
-              rows: rows(state.rows, action),
+              rows: rows(state.rows, action, config),
             },
             action
           ),
@@ -145,6 +145,17 @@ export const cell = (s: Cell, a: AnyAction): Cell =>
 
         case CELL_INSERT_ABOVE:
           if (isHoveringThis(state, action as CellHoverAction)) {
+            const layoutWrapperName = 'default_grid';
+            const layoutWrapperVersion = '0.0.1';
+            const layoutWrapperState = {
+              id: undefined,
+              name: '',
+              layout: {},
+              i18n: {},
+            };
+            const layoutWrapper = config.plugins.findLayoutPlugin(layoutWrapperName, layoutWrapperVersion);
+            const layout = config.plugins.getNewPluginState(layoutWrapper, layoutWrapperState, layoutWrapperVersion);
+
             return {
               ...createCell(),
               id: action.ids[0],
@@ -154,15 +165,31 @@ export const cell = (s: Cell, a: AnyAction): Cell =>
                   {
                     ...createRow(),
                     id: action.ids[1],
-                    cells: [{ ...action.item, id: action.ids[2], inline: null }],
-                  },
-                  {
-                    ...createRow(),
-                    id: action.ids[3],
-                    cells: [{ ...reduce(), id: action.ids[4] }],
+                    cells: [{
+                      ...createCell(),
+                      id: action.ids[2],
+                      ...(action.item.content && { layout }),
+                      hover: null,
+                      rows: rows(
+                        [
+                          {
+                            ...createRow(),
+                            id: action.ids[3],
+                            cells: [{
+                              ...action.item, id: action.ids[4], inline: null,
+                            }, {
+                              ...reduce(), id: action.ids[5],
+                            }],
+                          },
+                        ],
+                        { ...action, hover: null },
+                        config
+                      ),
+                    }],
                   },
                 ],
-                { ...action, hover: null }
+                { ...action, hover: null },
+                config
               ),
             };
           }
@@ -170,6 +197,17 @@ export const cell = (s: Cell, a: AnyAction): Cell =>
 
         case CELL_INSERT_BELOW:
           if (isHoveringThis(state, action as CellHoverAction)) {
+            const layoutWrapperName = 'default_grid';
+            const layoutWrapperVersion = '0.0.1';
+            const layoutWrapperState = {
+              id: undefined,
+              name: '',
+              layout: {},
+              i18n: {},
+            };
+            const layoutWrapper = config.plugins.findLayoutPlugin(layoutWrapperName, layoutWrapperVersion);
+            const layout = config.plugins.getNewPluginState(layoutWrapper, layoutWrapperState, layoutWrapperVersion);
+
             return {
               ...createCell(),
               id: action.ids[0],
@@ -179,15 +217,29 @@ export const cell = (s: Cell, a: AnyAction): Cell =>
                   {
                     ...createRow(),
                     id: action.ids[1],
-                    cells: [{ ...reduce(), id: action.ids[2] }],
-                  },
-                  {
-                    ...createRow(),
-                    id: action.ids[3],
-                    cells: [{ ...action.item, id: action.ids[4], inline: null }],
+                    cells: [{
+                      ...reduce(), id: action.ids[2],
+                    }, {
+                      ...createCell(),
+                      id: action.ids[3],
+                      ...(action.item.content && { layout }),
+                      hover: null,
+                      rows: rows(
+                        [
+                          {
+                            ...createRow(),
+                            id: action.ids[4],
+                            cells: [{...action.item, id: action.ids[5], inline: null }],
+                          },
+                        ],
+                        { ...action, hover: null },
+                        config
+                      ),
+                    }],
                   },
                 ],
-                { ...action, hover: null }
+                { ...action, hover: null },
+                config
               ),
             };
           }
@@ -196,22 +248,22 @@ export const cell = (s: Cell, a: AnyAction): Cell =>
         default:
           return reduce();
       }
-    })(s, a)
+    })(s, a, c)
   );
 
-export const cells = (s: Cell[] = [], a: AnyAction): Cell[] =>
+export const cells = (s: Cell[] = [], a: AnyAction, c: any): Cell[] =>
   optimizeCells(
-    ((state: Cell[], action: AnyAction): Cell[] => {
+    ((state: Cell[], action: AnyAction, config: any): Cell[] => {
       switch (action.type) {
         case CELL_RESIZE:
           // tslint:disable-next-line:no-any
-          return resizeCells(state.map(inner(cell, action)), action as any);
+          return resizeCells(state.map(inner(cell, action, config)), action as any);
 
         case CELL_INSERT_BELOW:
         case CELL_INSERT_ABOVE:
           return state
             .filter((c: Cell) => c.id !== action.item.id)
-            .map(inner(cell, action));
+            .map(inner(cell, action, config));
 
         case CELL_INSERT_LEFT_OF:
           return state
@@ -225,7 +277,7 @@ export const cells = (s: Cell[] = [], a: AnyAction): Cell[] =>
                 : [c]
             )
             .reduce(flatten, [])
-            .map(inner(cell, action));
+            .map(inner(cell, action, config));
 
         case CELL_INSERT_RIGHT_OF:
           return state
@@ -239,7 +291,7 @@ export const cells = (s: Cell[] = [], a: AnyAction): Cell[] =>
                 : [c]
             )
             .reduce(flatten, [])
-            .map(inner(cell, action));
+            .map(inner(cell, action, config));
 
         case CELL_INSERT_INLINE_RIGHT:
         case CELL_INSERT_INLINE_LEFT:
@@ -281,27 +333,27 @@ export const cells = (s: Cell[] = [], a: AnyAction): Cell[] =>
               return [c];
             })
             .reduce(flatten, [])
-            .map(inner(cell, action));
+            .map(inner(cell, action, config));
 
         case CELL_REMOVE:
           return state
             .filter(({ id }: Cell) => id !== action.id)
-            .map(inner(cell, action));
+            .map(inner(cell, action, config));
 
         default:
-          return state.map(inner(cell, action));
+          return state.map(inner(cell, action, config));
       }
-    })(s, a)
+    })(s, a, c)
   );
 
-export const row = (s: Row, a: AnyAction): Row =>
+export const row = (s: Row, a: AnyAction, c: any): Row =>
   computeRow(
     optimizeRow(
-      ((state: Row, action: AnyAction): Row => {
+      ((state: Row, action: AnyAction, config: any): Row => {
         const reduce = () => ({
           ...state,
           hover: null,
-          cells: cells(state.cells, action),
+          cells: cells(state.cells, action, config),
         });
 
         switch (action.type) {
@@ -317,7 +369,8 @@ export const row = (s: Row, a: AnyAction): Row =>
                   { ...action.item, id: action.ids[0], inline: null },
                   ...state.cells,
                 ],
-                { ...action, hover: null }
+                { ...action, hover: null },
+                config
               ),
             };
 
@@ -333,7 +386,8 @@ export const row = (s: Row, a: AnyAction): Row =>
                   ...state.cells,
                   { ...action.item, id: action.ids[0], inline: null },
                 ],
-                { ...action, hover: null }
+                { ...action, hover: null },
+                config
               ),
             };
 
@@ -346,16 +400,16 @@ export const row = (s: Row, a: AnyAction): Row =>
           default:
             return reduce();
         }
-      })(s, a)
+      })(s, a, c)
     )
   );
 
-export const rows = (s: Row[] = [], a: AnyAction): Row[] =>
+export const rows = (s: Row[] = [], a: AnyAction, c: any): Row[] =>
   optimizeRows(
     // tslint:disable-next-line:no-any
     mergeDecorator(a as any)(
-      ((state: Row[], action: AnyAction): Row[] => {
-        const reduce = () => state.map(inner(row, action));
+      ((state: Row[], action: AnyAction, config: any): Row[] => {
+        const reduce = () => state.map(inner(row, action, config));
         switch (action.type) {
           case CELL_INSERT_ABOVE:
             return state
@@ -377,7 +431,7 @@ export const rows = (s: Row[] = [], a: AnyAction): Row[] =>
                   : [r]
               )
               .reduce(flatten, [])
-              .map(inner(row, action));
+              .map(inner(row, action, config));
           case CELL_INSERT_BELOW:
             return state
               .map((r: Row) =>
@@ -398,11 +452,11 @@ export const rows = (s: Row[] = [], a: AnyAction): Row[] =>
                   : [r]
               )
               .reduce(flatten, [])
-              .map(inner(row, action));
+              .map(inner(row, action, config));
 
           default:
             return reduce();
         }
-      })(s, a)
+      })(s, a, c)
     )
   );

@@ -79,7 +79,7 @@ const insert = (type: string) => (
     item,
     hover,
     level: l,
-    ids: ids.length > 0 ? ids : gen(5),
+    ids: ids.length > 0 ? ids : gen(7),
   };
 };
 

@@ -66,6 +66,7 @@ export type AbstractCell<T> = {
   hasInlineNeighbour?: string;
   levels?: Levels;
   order?: number;
+  parent?: string;
 };
 
 export type Cell = AbstractCell<Row>;
@@ -87,6 +88,7 @@ export const createCell = (): Cell => ({
     right: 0,
     left: 0,
   },
+  order: 0,
 });
 
 export type ComponetizedCell = {

@@ -51,9 +51,9 @@ const computeCellParent = (a: Cell, parentId?: string): Cell => {
     );
   }
 
-  delete props.parentId; // eslint-disable-line prefer-reflect
+  delete props.parent; // eslint-disable-line prefer-reflect
   return {
-    parentId: pId,
+    parent: pId,
     ...props,
     ...{ rows: newRows },
   };

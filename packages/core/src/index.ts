@@ -40,6 +40,7 @@ import {
   LayoutPluginConfig
 } from './service/plugin/classes';
 import { isProduction } from './const';
+import { searchNodeEverywhere } from './selector/editable';
 
 let instance: Editor;
 
@@ -60,6 +61,7 @@ const nativeTypes = (editor: Editor) =>
 
 const update = (editor: Editor) => (editable: EditableType) => {
   const state = editor.plugins.unserialize(editable);
+
   actions(editor.store.dispatch).editable.update({
     ...state,
     config: {
@@ -174,7 +176,13 @@ class Editor<T extends RootState = RootState> {
   }
 }
 
-export { PluginService, Editable, Editor, oryReducer };
+export {
+  PluginService,
+  Editable,
+  Editor,
+  oryReducer,
+  searchNodeEverywhere,
+};
 
 export const createEmptyState: () => EditableType = () =>
   ({ id: v4(), cells: [] } as EditableType);

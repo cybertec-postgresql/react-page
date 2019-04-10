@@ -61,7 +61,6 @@ export const target = {
       if (isNativeHTMLElementDrag(monitor)) {
         drag = createNativeCellReplacement();
       }
-
       if (!drag) {
         return;
       } else if (drag.id === hover.id) {
@@ -89,7 +88,7 @@ export const target = {
         drag,
         monitor,
         component,
-        '10x10-no-inline'
+        '6x6'
       );
     },
     delay,
@@ -128,7 +127,7 @@ export const target = {
       drag,
       monitor,
       component,
-      '10x10-no-inline'
+      '6x6'
     );
   },
 };

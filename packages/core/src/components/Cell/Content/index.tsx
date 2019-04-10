@@ -64,7 +64,9 @@ class Content extends React.PureComponent<ComponetizedCell> {
           } = {},
           state = {},
         } = {},
+        parent = undefined,
         focused,
+        size,
       },
     } = nextProps;
 
@@ -79,6 +81,8 @@ class Content extends React.PureComponent<ComponetizedCell> {
       onChange: this.props.updateCellContent,
       name,
       version,
+      parent,
+      size,
       isEditMode: nextProps.isEditMode,
       isResizeMode: nextProps.isResizeMode,
       isPreviewMode: nextProps.isPreviewMode,
@@ -114,6 +118,9 @@ class Content extends React.PureComponent<ComponetizedCell> {
           } = {},
           state = {},
         } = {},
+        parent = undefined,
+        order,
+        size,
         focused,
       },
     } = this.props;
@@ -146,6 +153,9 @@ class Content extends React.PureComponent<ComponetizedCell> {
           focused={this.props.isEditMode && focused}
           name={name}
           version={version}
+          parent={parent}
+          order={order}
+          size={size}
           readOnly={!this.props.isEditMode}
           onChange={this.props.updateCellContent}
           focus={focusCell}

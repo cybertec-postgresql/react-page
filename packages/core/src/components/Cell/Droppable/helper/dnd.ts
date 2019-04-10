@@ -21,7 +21,7 @@
  */
 import * as React from 'react';
 import throttle from 'lodash.throttle';
-import pathOr from 'ramda/src/pathOr';
+// import pathOr from 'ramda/src/pathOr';
 import {
   computeAndDispatchHover,
   computeAndDispatchInsert
@@ -82,17 +82,17 @@ export const target = {
       }
 
       last = { hover: hover.id, drag: drag.id };
-      const allowInlineNeighbours = pathOr(
+      /*const allowInlineNeighbours = pathOr(
         false,
         ['node', 'content', 'plugin', 'allowInlineNeighbours'],
         hover
-      );
+      );*/
       computeAndDispatchHover(
         hover,
         drag,
         monitor,
         component,
-        `10x10${allowInlineNeighbours ? '' : '-no-inline'}`
+        '6x6'
       );
     },
     delay,
@@ -110,7 +110,6 @@ export const target = {
   // tslint:disable-next-line:no-any
   drop(hover: ComponetizedCell, monitor: DropTargetMonitor, component: any) {
     let drag: ComponetizedCell = monitor.getItem();
-
     if (isNativeHTMLElementDrag(monitor)) {
       const { plugins } = component.props.config;
       drag = plugins.createNativePlugin(hover, monitor, component);
@@ -130,17 +129,17 @@ export const target = {
     }
 
     last = { hover: hover.id, drag: drag.id };
-    const allowInlineNeighbours = pathOr(
+    /*const allowInlineNeighbours = pathOr(
       false,
       ['node', 'content', 'plugin', 'allowInlineNeighbours'],
       hover
-    );
+    );*/
     computeAndDispatchInsert(
       hover,
       drag,
       monitor,
       component,
-      `10x10${allowInlineNeighbours ? '' : '-no-inline'}`
+      '6x6'
     );
   },
 };

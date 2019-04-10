@@ -60,6 +60,8 @@ class Layout extends React.PureComponent<ComponetizedCell> {
           state = {},
         } = {},
         focused,
+        size,
+        parent,
       },
       updateCellContent,
     } = nextProps;
@@ -73,6 +75,8 @@ class Layout extends React.PureComponent<ComponetizedCell> {
       readOnly: !this.props.isEditMode,
       onChange: updateCellContent,
       name,
+      parent,
+      size,
       version,
       // Commented this out for consistency with the way Component is called
       /*isEditMode: nextProps.isEditMode,
@@ -100,7 +104,7 @@ class Layout extends React.PureComponent<ComponetizedCell> {
   render() {
     const {
       id,
-      node: { rows = [], layout, focused },
+      node: { rows = [], layout, focused, parent, order, size },
       editable,
       ancestors = [],
       rowHeight,
@@ -142,7 +146,10 @@ class Layout extends React.PureComponent<ComponetizedCell> {
           editable={editable}
           focused={this.props.isEditMode && focused}
           name={name}
+          parent={parent}
           version={version}
+          order={order}
+          size={size}
           readOnly={!this.props.isEditMode}
           onChange={this.props.updateCellLayout}
         >

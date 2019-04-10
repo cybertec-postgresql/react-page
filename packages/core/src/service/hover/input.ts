@@ -68,7 +68,7 @@ export const computeAndDispatchInsert = (
   drag: ComponetizedCell,
   monitor: DragSourceMonitor,
   component: React.ReactInstance,
-  matrixName: string = '10x10'
+  matrixName: string = '6x6'
 ) =>
   computeCurrentDropPosition(
     {
@@ -103,7 +103,7 @@ export const computeAndDispatchHover = (
   drag: ComponetizedCell,
   monitor: DragSourceMonitor,
   component: React.ReactInstance,
-  matrixName: string = '10x10'
+  matrixName: string = '6x6'
 ) =>
   computeCurrentDropPosition(
     {

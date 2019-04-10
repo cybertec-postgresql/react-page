@@ -184,6 +184,19 @@ export type PluginProps<
   StaticComponent?: PluginComponentType<
     PluginProps<StateT, ExtraPropsT> & ExtraPropsT
   >;
+
+  /**
+   * Parent Id
+   */
+  parent?: string;
+
+  /**
+   * Parent Id
+   */
+  order?: number;
+
+  size?: number;
+
   // tslint:disable-next-line:no-any
   serialize?: (state: StateT) => any;
   // tslint:disable-next-line:no-any

@@ -38,7 +38,7 @@ export const rawEditableReducer = (
   },
   action: AnyAction
 ) => {
-  let newCells = decorate(cells(state.cells, action));
+  let newCells = decorate(cells(state.cells, action, state.config));
 
   // eslint-disable-next-line default-case
   switch (action.type) {
@@ -52,7 +52,7 @@ export const rawEditableReducer = (
           },
           id: action.ids[0],
         };
-        newCells = decorate(cells([c], action));
+        newCells = decorate(cells([c], action, state.config));
       }
       break;
     default:
