@@ -118,6 +118,6 @@ export const computeSizes = (cells: Array<Cell> = []): Array<Cell> => {
 
   return cells.map((c: Cell, k: number) => ({
     ...c,
-    size: c.size ? c.size : 12,
+    size: c.size ? c.size : 0,
   }));
 };

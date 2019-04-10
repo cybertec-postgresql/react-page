@@ -403,7 +403,7 @@ export const defaultCallbacks: CallbackList = {
   [c.C1]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { leftOf, above }: Callbacks,
+    { leftOf, above, rightOf }: Callbacks,
     // tslint:disable-next-line:no-any
     ctx: any
   ) => {
@@ -414,13 +414,13 @@ export const defaultCallbacks: CallbackList = {
       return leftOf(item.rawNode(), hover.rawNode(), level);
     }
 
-    above(item.rawNode(), hover.rawNode(), level);
+    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   [c.C2]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { rightOf, above }: Callbacks,
+    { rightOf, above, }: Callbacks,
     // tslint:disable-next-line:no-any
     ctx: any
   ) => {
@@ -431,7 +431,7 @@ export const defaultCallbacks: CallbackList = {
       return rightOf(item.rawNode(), hover.rawNode(), level);
     }
 
-    above(item.rawNode(), hover.rawNode(), level);
+    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   [c.C3]: (
@@ -447,13 +447,13 @@ export const defaultCallbacks: CallbackList = {
     if (mouse.x > mouse.y) {
       return rightOf(item.rawNode(), hover.rawNode(), level);
     }
-    below(item.rawNode(), hover.rawNode(), level);
+    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   [c.C4]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { leftOf, below }: Callbacks,
+    { leftOf, below, rightOf }: Callbacks,
     // tslint:disable-next-line:no-any
     ctx: any
   ) => {
@@ -461,19 +461,19 @@ export const defaultCallbacks: CallbackList = {
     const level = getDropLevel(hover);
 
     if (mouse.x < mouse.y) {
-      return leftOf(item.rawNode(), hover.rawNode(), level);
+      return rightOf(item.rawNode(), hover.rawNode(), level);
     }
-    below(item.rawNode(), hover.rawNode(), level);
+    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   /* heres */
   [c.AH]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { above }: Callbacks
+    { above, leftOf }: Callbacks
   ) => {
     const level = getDropLevel(hover);
-    above(
+    leftOf(
       item.rawNode(),
       {
         ...hover.rawNode(),
@@ -484,10 +484,10 @@ export const defaultCallbacks: CallbackList = {
   [c.BH]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { below }: Callbacks
+    { below, rightOf }: Callbacks
   ) => {
     const level = getDropLevel(hover);
-    below(
+    rightOf(
       item.rawNode(),
       {
         ...hover.rawNode(),
@@ -529,10 +529,10 @@ export const defaultCallbacks: CallbackList = {
   [c.AA]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { above }: Callbacks,
+    { above, leftOf }: Callbacks,
     ctx: Object
   ) =>
-    above(
+    leftOf(
       item.rawNode(),
       hover.rawNode(),
       computeVertical(
@@ -548,10 +548,10 @@ export const defaultCallbacks: CallbackList = {
   [c.BA]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { below }: Callbacks,
+    { below, rightOf }: Callbacks,
     ctx: Object
   ) =>
-    below(
+    rightOf(
       item.rawNode(),
       hover.rawNode(),
       computeVertical({
