@@ -79,7 +79,7 @@ class Cell extends React.PureComponent<CellProps> {
     return (
       <Grid
         item={true}
-        md={size as any}
+        md={size ? size : true as any}
         className={classNames({
           'ory-cell-has-inline-neighbour': hasInlineNeighbour,
           [`ory-cell-inline-${inline || ''}`]: inline,
