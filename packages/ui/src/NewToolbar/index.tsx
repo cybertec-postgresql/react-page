@@ -60,7 +60,7 @@ class Raw extends React.Component<Props, State> {
         variant="persistent"
         className="ory-toolbar-drawer"
         open={this.props.isInsertMode}
-        PaperProps={{ style: { width: drawerWidth, } }}
+        PaperProps={{ style: { width: drawerWidth, maxWidth: drawerWidth } }}
       >
         <Tabs content={content} layout={layout} widgetGroups={widgetGroups} />
       </Drawer>
