@@ -56,6 +56,7 @@ class Layout extends React.PureComponent<ComponetizedCell> {
             handleBlur = () => null,
             name = 'N/A',
             version = 'N/A',
+            text = 'N/A',
           } = {},
           state = {},
         } = {},
@@ -75,6 +76,7 @@ class Layout extends React.PureComponent<ComponetizedCell> {
       readOnly: !this.props.isEditMode,
       onChange: updateCellContent,
       name,
+      text,
       parent,
       size,
       version,
@@ -111,7 +113,7 @@ class Layout extends React.PureComponent<ComponetizedCell> {
       rowWidth,
     }: ComponetizedCell = this.props;
     const { plugin, state } = layout;
-    const { Component, version, name } = plugin;
+    const { Component, version, name, text = 'N/A' } = plugin;
     const { focusCell, blurCell } = this.props;
 
     let focusProps;
@@ -146,6 +148,7 @@ class Layout extends React.PureComponent<ComponetizedCell> {
           editable={editable}
           focused={this.props.isEditMode && focused}
           name={name}
+          text={text}
           parent={parent}
           version={version}
           order={order}

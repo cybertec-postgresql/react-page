@@ -61,6 +61,7 @@ class Content extends React.PureComponent<ComponetizedCell> {
             handleBlur = () => null,
             name = 'N/A',
             version = 'N/A',
+            text = 'N/A',
           } = {},
           state = {},
         } = {},
@@ -80,6 +81,7 @@ class Content extends React.PureComponent<ComponetizedCell> {
       readOnly: !isEditMode,
       onChange: this.props.updateCellContent,
       name,
+      text,
       version,
       parent,
       size,
@@ -115,6 +117,7 @@ class Content extends React.PureComponent<ComponetizedCell> {
             Component = () => null,
             name = 'N/A',
             version = 'N/A',
+            text = 'N/A',
           } = {},
           state = {},
         } = {},
@@ -156,6 +159,7 @@ class Content extends React.PureComponent<ComponetizedCell> {
           parent={parent}
           order={order}
           size={size}
+          text={text}
           readOnly={!this.props.isEditMode}
           onChange={this.props.updateCellContent}
           focus={focusCell}
