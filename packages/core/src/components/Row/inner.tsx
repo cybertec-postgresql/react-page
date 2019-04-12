@@ -37,6 +37,7 @@ const Inner = ({
 }: ComponetizedRow) => (
   <Grid
     container={true}
+    spacing={8}
     className={classNames('ory-row', {
       'ory-row-is-hovering-this': Boolean(hover),
       [`ory-row-is-hovering-${hover || ''}`]: Boolean(hover),
