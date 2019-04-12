@@ -81,6 +81,7 @@ class Cell extends React.PureComponent<CellProps> {
         item={true}
         md={size ? size : true as any}
         className={classNames({
+          'ory-cell': true,
           'ory-cell-has-inline-neighbour': hasInlineNeighbour,
           [`ory-cell-inline-${inline || ''}`]: inline,
           'ory-cell-focused': focused,
