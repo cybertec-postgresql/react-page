@@ -96,6 +96,9 @@ const c = classes;
  * @type {{6x6: *[], 10x10: *[], 10x10-no-inline: *[]}}
  */
 export const defaultMatrices: MatrixList = {
+  '1x1': [
+    [c.C1, c.C2],
+  ],
   '6x6': [
     [c.C1, c.AA, c.AA, c.AA, c.AA, c.C2],
     [c.LA, c.IL, c.AH, c.AH, c.IR, c.RA],
@@ -403,97 +406,111 @@ export const defaultCallbacks: CallbackList = {
   [c.C1]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { leftOf, above, rightOf }: Callbacks,
+    { leftOf, rightOf }: Callbacks,
     // tslint:disable-next-line:no-any
     ctx: any
   ) => {
-    const mouse = relativeMousePosition(ctx);
-    const level = getDropLevel(hover);
+    if (hover.node.parent) {
+      const mouse = relativeMousePosition(ctx);
+      const level = getDropLevel(hover);
 
-    if (mouse.x < mouse.y) {
-      return leftOf(item.rawNode(), hover.rawNode(), level);
+      if (mouse.x < mouse.y) {
+        return leftOf(item.rawNode(), hover.rawNode(), level);
+      }
+
+      rightOf(item.rawNode(), hover.rawNode(), level);
     }
-
-    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   [c.C2]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { rightOf, above, }: Callbacks,
+    { rightOf, }: Callbacks,
     // tslint:disable-next-line:no-any
     ctx: any
   ) => {
-    const mouse = relativeMousePosition(ctx);
-    const level = getDropLevel(hover);
+    if (hover.node.parent) {
+      const mouse = relativeMousePosition(ctx);
+      const level = getDropLevel(hover);
 
-    if (mouse.x > mouse.y) {
-      return rightOf(item.rawNode(), hover.rawNode(), level);
+      if (mouse.x > mouse.y) {
+        return rightOf(item.rawNode(), hover.rawNode(), level);
+      }
+
+      rightOf(item.rawNode(), hover.rawNode(), level);
     }
-
-    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   [c.C3]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { rightOf, below }: Callbacks,
+    { rightOf }: Callbacks,
     // tslint:disable-next-line:no-any
     ctx: any
   ) => {
-    const mouse = relativeMousePosition(ctx);
-    const level = getDropLevel(hover);
+    if (hover.node.parent) {
+      const mouse = relativeMousePosition(ctx);
+      const level = getDropLevel(hover);
 
-    if (mouse.x > mouse.y) {
-      return rightOf(item.rawNode(), hover.rawNode(), level);
+      if (mouse.x > mouse.y) {
+        return rightOf(item.rawNode(), hover.rawNode(), level);
+      }
+      rightOf(item.rawNode(), hover.rawNode(), level);
     }
-    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   [c.C4]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { leftOf, below, rightOf }: Callbacks,
+    { leftOf, rightOf }: Callbacks,
     // tslint:disable-next-line:no-any
     ctx: any
   ) => {
-    const mouse = relativeMousePosition(ctx);
-    const level = getDropLevel(hover);
+    if (hover.node.parent) {
+      const mouse = relativeMousePosition(ctx);
+      const level = getDropLevel(hover);
 
-    if (mouse.x < mouse.y) {
-      return rightOf(item.rawNode(), hover.rawNode(), level);
+      if (mouse.x < mouse.y) {
+        return leftOf(item.rawNode(), hover.rawNode(), level);
+      }
+      rightOf(item.rawNode(), hover.rawNode(), level);
     }
-    rightOf(item.rawNode(), hover.rawNode(), level);
   },
 
   /* heres */
   [c.AH]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { above, leftOf }: Callbacks
+    { leftOf }: Callbacks
   ) => {
-    const level = getDropLevel(hover);
-    leftOf(
-      item.rawNode(),
-      {
-        ...hover.rawNode(),
-      },
-      level
-    );
+    if (hover.node.parent) {
+      const level = getDropLevel(hover);
+
+      return leftOf(
+        item.rawNode(),
+        {
+          ...hover.rawNode(),
+        },
+        level
+      );
+    }
   },
   [c.BH]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { below, rightOf }: Callbacks
+    { rightOf }: Callbacks
   ) => {
-    const level = getDropLevel(hover);
-    rightOf(
-      item.rawNode(),
-      {
-        ...hover.rawNode(),
-      },
-      level
-    );
+    if (hover.node.parent) {
+      const level = getDropLevel(hover);
+
+      return rightOf(
+        item.rawNode(),
+        {
+          ...hover.rawNode(),
+        },
+        level
+      );
+    }
   },
 
   [c.LH]: (
@@ -501,158 +518,184 @@ export const defaultCallbacks: CallbackList = {
     hover: ComponetizedCell,
     { leftOf }: Callbacks
   ) => {
-    const level = getDropLevel(hover);
-    leftOf(
-      item.rawNode(),
-      {
-        ...hover.rawNode(),
-      },
-      level
-    );
+    if (hover.node.parent) {
+      const level = getDropLevel(hover);
+
+      return leftOf(
+        item.rawNode(),
+        {
+          ...hover.rawNode(),
+        },
+        level
+      );
+    }
   },
   [c.RH]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
     { rightOf }: Callbacks
   ) => {
-    const level = getDropLevel(hover);
-    rightOf(
-      item.rawNode(),
-      {
-        ...hover.rawNode(),
-      },
-      level
-    );
+    if (hover.node.parent) {
+      const level = getDropLevel(hover);
+
+      return rightOf(
+        item.rawNode(),
+        {
+          ...hover.rawNode(),
+        },
+        level
+      );
+    }
   },
 
   /* ancestors */
   [c.AA]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { above, leftOf }: Callbacks,
+    { leftOf }: Callbacks,
     ctx: Object
-  ) =>
-    leftOf(
-      item.rawNode(),
-      hover.rawNode(),
-      computeVertical(
-        {
-          ...ctx,
-          hover: hover,
-          level: hover.node.levels.above,
-          // tslint:disable-next-line:no-any
-        } as any,
-        true
-      )
-    ),
+  ) => {
+    if (hover.node.parent) {
+      return leftOf(
+        item.rawNode(),
+        hover.rawNode(),
+        computeVertical(
+          {
+            ...ctx,
+            hover: hover,
+            level: hover.node.levels.above,
+            // tslint:disable-next-line:no-any
+          } as any,
+          true
+        )
+      );
+    }
+  },
+
   [c.BA]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { below, rightOf }: Callbacks,
+    { rightOf }: Callbacks,
     ctx: Object
-  ) =>
-    rightOf(
-      item.rawNode(),
-      hover.rawNode(),
-      computeVertical({
-        ...ctx,
-        hover,
-        level: hover.node.levels.below,
-        // tslint:disable-next-line:no-any
-      } as any)
-    ),
+  ) => {
+    if (hover.node.parent) {
+      return rightOf(
+        item.rawNode(),
+        hover.rawNode(),
+        computeVertical({
+          ...ctx,
+          hover,
+          level: hover.node.levels.below,
+          // tslint:disable-next-line:no-any
+        } as any)
+      );
+    }
+  },
 
   [c.LA]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
     { leftOf }: Callbacks,
     ctx: Object
-  ) =>
-    leftOf(
-      item.rawNode(),
-      hover.rawNode(),
-      computeHorizontal(
-        {
-          ...ctx,
-          hover,
-          level: hover.node.levels.left,
-          // tslint:disable-next-line:no-any
-        } as any,
-        true
-      )
-    ),
+  ) => {
+    if (hover.node.parent) {
+      leftOf(
+        item.rawNode(),
+        hover.rawNode(),
+        computeHorizontal(
+          {
+            ...ctx,
+            hover,
+            level: hover.node.levels.left,
+            // tslint:disable-next-line:no-any
+          } as any,
+          true
+        )
+      );
+    }
+  },
+
   [c.RA]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
     { rightOf }: Callbacks,
     ctx: Object
-  ) =>
-    rightOf(
-      item.rawNode(),
-      hover.rawNode(),
-      computeHorizontal({
-        ...ctx,
-        hover,
-        level: hover.node.levels.right,
-        // tslint:disable-next-line:no-any
-      } as any)
-    ),
+  ) => {
+    if (hover.node.parent) {
+      return rightOf(
+        item.rawNode(),
+        hover.rawNode(),
+        computeHorizontal({
+          ...ctx,
+          hover,
+          level: hover.node.levels.right,
+          // tslint:disable-next-line:no-any
+        } as any)
+      );
+    }
+  },
+
 
   /* inline */
   [c.IL]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { inlineLeft, leftOf }: Callbacks
+    { leftOf }: Callbacks
   ) => {
-    const {
-      node: { inline, hasInlineNeighbour },
-    } = hover;
-    const {
-      node: { content: { plugin: { isInlineable = false } = {} } = {} },
-    } = item;
-    if (inline || !isInlineable) {
-      return leftOf(item.rawNode(), hover.rawNode(), 2);
-    }
-    if (hasInlineNeighbour && hasInlineNeighbour !== item.id) {
-      return leftOf(item.rawNode(), hover.rawNode(), 2);
-    }
-    if (
-      hasInlineNeighbour &&
-      hasInlineNeighbour === item.id &&
-      item.node.inline === 'left'
-    ) {
+    if (hover.node.parent) {
+      const {
+        node: { inline, hasInlineNeighbour },
+      } = hover;
+      const {
+        node: { content: { plugin: { isInlineable = false } = {} } = {} },
+      } = item;
+      if (inline || !isInlineable) {
+        return leftOf(item.rawNode(), hover.rawNode(), 2);
+      }
+      if (hasInlineNeighbour && hasInlineNeighbour !== item.id) {
+        return leftOf(item.rawNode(), hover.rawNode(), 2);
+      }
+      if (
+        hasInlineNeighbour &&
+        hasInlineNeighbour === item.id &&
+        item.node.inline === 'left'
+      ) {
+        return leftOf(item.rawNode(), hover.rawNode(), 2);
+      }
+
       return leftOf(item.rawNode(), hover.rawNode(), 2);
     }
 
-    leftOf(item.rawNode(), hover.rawNode(), 2);
   },
 
   [c.IR]: (
     item: ComponetizedCell,
     hover: ComponetizedCell,
-    { inlineRight, rightOf }: Callbacks
+    { rightOf }: Callbacks
   ) => {
-    const {
-      node: { inline, hasInlineNeighbour },
-    } = hover;
-    const {
-      node: { content: { plugin: { isInlineable = false } = {} } = {} },
-    } = item;
-    if (inline || !isInlineable) {
-      return rightOf(item.rawNode(), hover.rawNode(), 2);
-    }
-    if (hasInlineNeighbour && hasInlineNeighbour !== item.id) {
-      return rightOf(item.rawNode(), hover.rawNode(), 2);
-    }
-    if (
-      hasInlineNeighbour &&
-      hasInlineNeighbour === item.id &&
-      item.node.inline === 'right'
-    ) {
-      return rightOf(item.rawNode(), hover.rawNode(), 2);
-    }
+    if (hover.node.parent) {
+      const {
+        node: { inline, hasInlineNeighbour },
+      } = hover;
+      const {
+        node: { content: { plugin: { isInlineable = false } = {} } = {} },
+      } = item;
+      if (inline || !isInlineable) {
+        return rightOf(item.rawNode(), hover.rawNode(), 2);
+      }
+      if (hasInlineNeighbour && hasInlineNeighbour !== item.id) {
+        return rightOf(item.rawNode(), hover.rawNode(), 2);
+      }
+      if (
+        hasInlineNeighbour &&
+        hasInlineNeighbour === item.id &&
+        item.node.inline === 'right'
+      ) {
+        return rightOf(item.rawNode(), hover.rawNode(), 2);
+      }
 
-    rightOf(item.rawNode(), hover.rawNode(), 2);
+      return rightOf(item.rawNode(), hover.rawNode(), 2);
+    }
   },
 };
 
@@ -684,7 +727,7 @@ export default class HoverService {
     {
       room,
       mouse,
-      matrix: use = '10x10',
+      matrix: use = '1x1',
     }: { room: Room; mouse: Vector; matrix: string }
   ) {
     return computeHover(

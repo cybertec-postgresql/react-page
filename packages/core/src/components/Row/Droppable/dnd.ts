@@ -88,7 +88,7 @@ export const target = {
         drag,
         monitor,
         component,
-        '6x6'
+        '1x1'
       );
     },
     delay,
@@ -127,7 +127,7 @@ export const target = {
       drag,
       monitor,
       component,
-      '6x6'
+      '1x1'
     );
   },
 };
