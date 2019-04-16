@@ -624,7 +624,7 @@ export const defaultCallbacks: CallbackList = {
       return leftOf(item.rawNode(), hover.rawNode(), 2);
     }
 
-    inlineLeft(item.rawNode(), hover.rawNode());
+    leftOf(item.rawNode(), hover.rawNode(), 2);
   },
 
   [c.IR]: (
@@ -652,7 +652,7 @@ export const defaultCallbacks: CallbackList = {
       return rightOf(item.rawNode(), hover.rawNode(), 2);
     }
 
-    inlineRight(item.rawNode(), hover.rawNode());
+    rightOf(item.rawNode(), hover.rawNode(), 2);
   },
 };
 

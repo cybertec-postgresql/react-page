@@ -129,7 +129,6 @@ export const purifiedNode = (
 
   if ((found as Row).cells) {
     (found as Row).cells = (found as Row).cells
-      .sort((a: AbstractCell<Row>, b: AbstractCell<Row>) => a.order - b.order)
       .map(
         (c: Cell): string => c.id
         // tslint:disable-next-line:no-any
@@ -138,7 +137,6 @@ export const purifiedNode = (
 
   if ((found as Cell).rows) {
     (found as Cell).rows = (found as Cell).rows
-      .sort((a: Row, b: Row) => a.order - b.order)
       .map(
         (r: Row): string => r.id
         // tslint:disable-next-line:no-any
