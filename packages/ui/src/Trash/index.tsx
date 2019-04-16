@@ -64,6 +64,21 @@ const target = {
     { trailing: false }
   ),
 
+  canDrop(props: DropProps, monitor: any) {
+    const item = monitor.getItem();
+    const maybeNode = props.searchNodeEverywhere(item.id);
+
+    if (!maybeNode) {
+      return;
+    }
+
+    const { node: n } = maybeNode;
+
+    console.log(n);
+
+    return !!n.parent;
+  },
+
   // tslint:disable-next-line:no-any
   drop(props: DropProps, monitor: any) {
     const item = monitor.getItem();
@@ -92,21 +107,23 @@ const target = {
 const connectMonitor = (_connect: any, monitor: any) => ({
   connectDropTarget: _connect.dropTarget(),
   isOverCurrent: monitor.isOver({ shallow: true }),
+  canDrop: monitor.canDrop(),
 });
 
 export interface RawProps {
   isLayoutMode: boolean;
   isOverCurrent: boolean;
   connectDropTarget: (node: JSX.Element) => JSX.Element;
+  canDrop: boolean;
 }
 
 class Raw extends React.Component<RawProps> {
   render() {
-    const { connectDropTarget, isOverCurrent } = this.props;
+    const { connectDropTarget, isOverCurrent, canDrop } = this.props;
     return connectDropTarget(
       <div
         className={classNames('ory-controls-trash', {
-          'ory-controls-trash-active': this.props.isLayoutMode,
+          'ory-controls-trash-active': this.props.isLayoutMode && canDrop,
         })}
       >
         <Fab color="secondary" disabled={!isOverCurrent}>
