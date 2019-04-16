@@ -145,16 +145,6 @@ export const cell = (s: Cell, a: AnyAction, c: any): Cell =>
 
         case CELL_INSERT_ABOVE:
           if (isHoveringThis(state, action as CellHoverAction)) {
-            const layoutWrapperName = 'default_grid';
-            const layoutWrapperVersion = '0.0.1';
-            const layoutWrapperState = {
-              id: undefined,
-              name: '',
-              layout: {},
-              i18n: {},
-            };
-            const layoutWrapper = config.plugins.findLayoutPlugin(layoutWrapperName, layoutWrapperVersion);
-            const layout = config.plugins.getNewPluginState(layoutWrapper, layoutWrapperState, layoutWrapperVersion);
 
             return {
               ...createCell(),
@@ -168,7 +158,6 @@ export const cell = (s: Cell, a: AnyAction, c: any): Cell =>
                     cells: [{
                       ...createCell(),
                       id: action.ids[2],
-                      ...(action.item.content && { layout }),
                       hover: null,
                       rows: rows(
                         [
@@ -197,16 +186,6 @@ export const cell = (s: Cell, a: AnyAction, c: any): Cell =>
 
         case CELL_INSERT_BELOW:
           if (isHoveringThis(state, action as CellHoverAction)) {
-            const layoutWrapperName = 'default_grid';
-            const layoutWrapperVersion = '0.0.1';
-            const layoutWrapperState = {
-              id: undefined,
-              name: '',
-              layout: {},
-              i18n: {},
-            };
-            const layoutWrapper = config.plugins.findLayoutPlugin(layoutWrapperName, layoutWrapperVersion);
-            const layout = config.plugins.getNewPluginState(layoutWrapper, layoutWrapperState, layoutWrapperVersion);
 
             return {
               ...createCell(),
@@ -222,7 +201,6 @@ export const cell = (s: Cell, a: AnyAction, c: any): Cell =>
                     }, {
                       ...createCell(),
                       id: action.ids[3],
-                      ...(action.item.content && { layout }),
                       hover: null,
                       rows: rows(
                         [
