@@ -20,701 +20,1107 @@
  *
  */
 // tslint:disable:max-line-length
-import { EditableType } from '@cybertec/ory-editor-core/lib/types/editable';
+import { EditableType } from "@cybertec/ory-editor-core/lib/types/editable";
 
 const content: EditableType[] = [
   {
-    'id': '1',
-    'cells': [
+    id: "1",
+    cells: [
       {
-        'id': '5ac89ec4-7536-4120-a072-8eedad0a48ff',
-        'inline': null,
-        'size': 12,
-        'rows': [
+        id: "",
+        size: 12,
+        rows: [
           {
-            'id': 'dad71b07-5d3e-4aaf-9c8a-0e06a346da52',
-            'order': 1,
-            'cells': [
+            id: "",
+            cells: [
               {
-                'id': '6c11a0d6-6857-4917-9692-eae056fd9400',
-                'inline': null,
-                'size': 12,
-                'layout': {
-                  'plugin': {
-                    'name': 'ory/editor/core/layout/background',
-                    'version': '0.0.1',
+                id: "",
+                size: 12,
+                order: -10016,
+                content: {
+                  plugin: {
+                    name: "ory/editor/core/content/image",
+                    version: "0.0.1"
                   },
-                  'state': {
-                    'background': '/images/sea-bg.jpg',
-                  },
-                },
-                'rows': [
+                  state: {
+                    src: '/images/grass-header.jpg',
+                    id: 346,
+                    name: "custom_text_home",
+                    i18n: { text: "Home" },
+                    grid: [],
+                    config: { variant: "display1" },
+                    objectView: [],
+                    objectColumn: [],
+                    input: { values: {} },
+                    loaded: false
+                  }
+                }
+              },
+              {
+                id: "",
+                size: 12,
+                order: -9858.390625,
+                rows: [
                   {
-                    'id': 'c9d1ff2a-f7d1-410c-b275-9dd6200113c8',
-                    'cells': [],
-                  },
+                    id: "",
+                    cells: [
+                      {
+                        id: "",
+                        size: 0,
+                        order: -13,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 351,
+                            src: '/images/grass-header.jpg',
+                            name: "button_to_v_generated_admin_module",
+                            i18n: { label: "Module" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_module",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -12.01953125,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            src: '/images/mountain.jpg',
+                            id: 372,
+                            name: "button_to_v_generated_admin_object",
+                            i18n: { label: "object" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_object",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -10.55029296875,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 395,
+                            name: "button_to_v_generated_admin_role",
+                            i18n: { label: "Role" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_role",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -9.3623046875,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 410,
+                            name: "button_to_v_generated_admin_object_field",
+                            i18n: { label: "Object field" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_object_field",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -8.56855773925781,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 439,
+                            name: "button_to_v_generated_admin_object_view",
+                            i18n: { label: "Object view" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_object_view",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -7.1695556640625,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 493,
+                            name: "button_to_v_generated_admin_object_state",
+                            i18n: { label: "Object state" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_object_state",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -6.15981292724609,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 510,
+                            name: "button_to_v_generated_admin_state_change",
+                            i18n: { label: "State change" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_state_change",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -5.55306172370911,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 564,
+                            name: "button_to_v_generated_admin_page",
+                            i18n: { label: "Page" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_page",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -4.40637218952179,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 585,
+                            name: "button_to_v_generated_admin_menu",
+                            i18n: { label: "Menu" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_menu",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -3.31496888399124,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 602,
+                            name: "button_to_v_generated_admin_menu_entry",
+                            i18n: { label: "Menu entry" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_menu_entry",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -1.76644721627235,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 625,
+                            name: "button_to_v_generated_admin_element",
+                            i18n: { label: "Element" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_element",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -0.667106941342354,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 652,
+                            name: "button_to_v_generated_admin_element_type",
+                            i18n: { label: "Element type" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_element_type",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 0,
+                        order: -0.0887861642986536,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 671,
+                            name: "button_to_v_generated_admin_text",
+                            i18n: { label: "Text" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_text",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      },
+                      {
+                        id: "",
+                        size: 3,
+                        order: 0.62084576766938,
+                        content: {
+                          plugin: {
+                            name: "ory/editor/core/content/image",
+                            version: "0.0.1"
+                          },
+                          state: {
+                            id: 692,
+                            name: "button_to_v_generated_admin_layout",
+                            i18n: { label: "Layout" },
+                            grid: [],
+                            config: {
+                              link: "/v_generated_admin_layout",
+                              color: "secondary",
+                              style: { height: "50px" },
+                              variant: "contained",
+                              fullWidth: true
+                            },
+                            objectView: [],
+                            objectColumn: [],
+                            input: { values: {} },
+                            loaded: false
+                          }
+                        }
+                      }
+                    ]
+                  }
                 ],
-              },
-            ],
-          },
-          {
-            'id': 'd813d094-215a-43ec-bcdd-d5fd6258b915',
-            'order': 2,
-            'cells': [
-              {
-                'id': '3fde7b92-fbfe-4b2d-85b3-bad431939df6',
-                'inline': null,
-                'size': 12,
-                'content': {
-                  'plugin': {
-                    'name': 'ory/editor/core/content/slate',
-                    'version': '0.0.2',
-                  },
-                  'state': {
-                    'serialized': {
-                      'object': 'value',
-                      'document': {
-                        'object': 'document',
-                        'data': {},
-                        'nodes': [
-                          {
-                            'object': 'block',
-                            'type': 'HEADINGS/HEADING-ONE',
-                            'isVoid': false,
-                            'data': {
-                              'align': 'center',
-                            },
-                            'nodes': [
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': 'The ORY Editor',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                          {
-                            'object': 'block',
-                            'type': 'PARAGRAPH/PARAGRAPH',
-                            'isVoid': false,
-                            'data': {
-                              'align': 'left',
-                            },
-                            'nodes': [
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': '',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'inline',
-                                'type': 'LINK/LINK',
-                                'isVoid': false,
-                                'data': {
-                                  'href': 'https://www.ory.sh/',
-                                },
-                                'nodes': [
-                                  {
-                                    'object': 'text',
-                                    'leaves': [
-                                      {
-                                        'object': 'leaf',
-                                        'text': 'ORY',
-                                        'marks': [],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': ' is a company building and maintaining developer tools for a safer, more accessible web. You might also like our other ',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'inline',
-                                'type': 'LINK/LINK',
-                                'isVoid': false,
-                                'data': {
-                                  'href': 'https://github.com/ory',
-                                },
-                                'nodes': [
-                                  {
-                                    'object': 'text',
-                                    'leaves': [
-                                      {
-                                        'object': 'leaf',
-                                        'text': 'Open Source',
-                                        'marks': [],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': ' tools! The ORY Editor is a smart, extensible and modern editor ("WYSIWYG") for the web written in React.',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                          {
-                            'object': 'block',
-                            'type': 'PARAGRAPH/PARAGRAPH',
-                            'isVoid': false,
-                            'data': {
-                              'align': 'left',
-                            },
-                            'nodes': [
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': 'The ORY Editor was written because we urgently needed a robust and modern content editing solution for our open education platform ',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'inline',
-                                'type': 'LINK/LINK',
-                                'isVoid': false,
-                                'data': {
-                                  'href': 'https://en.serlo.org/serlo',
-                                },
-                                'nodes': [
-                                  {
-                                    'object': 'text',
-                                    'leaves': [
-                                      {
-                                        'object': 'leaf',
-                                        'text': 'serlo.org',
-                                        'marks': [],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': '. Serlo is the largest open education platform in Germany, works like the Wikipedia and is used by millions every year.',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                        ],
-                      },
-                    },
-                  },
-                },
-              },
-            ],
-          },
-          {
-            'id': 'ec4474f6-a418-4628-831b-03a7e64fd500',
-            'order': 3,
-            'cells': [
-              {
-                'id': '78269a8f-7b29-4703-b107-b399eac3e365',
-                'inline': null,
-                'size': 8,
-                'order': 2,
-                'content': {
-                  'plugin': {
-                    'name': 'ory/editor/core/content/slate',
-                    'version': '0.0.2',
-                  },
-                  'state': {
-                    'serialized': {
-                      'object': 'value',
-                      'document': {
-                        'object': 'document',
-                        'data': {},
-                        'nodes': [
-                          {
-                            'object': 'block',
-                            'type': 'HEADINGS/HEADING-THREE',
-                            'isVoid': false,
-                            'data': {},
-                            'nodes': [
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': 'Sane mark-up',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                          {
-                            'object': 'block',
-                            'type': 'PARAGRAPH/PARAGRAPH',
-                            'isVoid': false,
-                            'data': {},
-                            'nodes': [
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': 'Most web editors work on top of the DOM. This is dangerous (XSS), hard to maintain and difficult to parse. The ORY Editor uses JSON only - everywhere! It\'s sane, tested, clean and minimal.',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                        ],
-                      },
-                    },
-                  },
-                },
-              },
-              {
-                'id': 'e8c5696c-4769-483c-a962-2fd5f4727c0c',
-                'order': 1,
-                'inline': null,
-                'size': 4,
-                'content': {
-                  'plugin': {
-                    'name': 'ory/editor/core/content/image',
-                    'version': '0.0.1',
-                  },
-                  'state': {
-                    'src': '/images/sane-markup.png',
-                  },
-                },
-              },
-            ],
-          },
-          {
-            'id': 'dad71b07-5d3e-4aaf-9c8a-0e06a346de99',
-            'cells': [
-              {
-                'id': '6c11a0d6-6857-4917-9692-eae056fd9500',
-                'inline': null,
-                'size': 12,
-                'layout': {
-                  'plugin': {
-                    'name': 'ory/editor/core/layout/background',
-                    'version': '0.0.1',
-                  },
-                  'state': {
-                    'background': '/images/sea-bg.jpg',
-                  },
-                },
-                'rows': [
-                  {
-                    'id': 'c9d1ff2a-f7d1-410c-b275-9dd6200114c5',
-                    'cells': [
+                layout: {
+                  plugin: { name: "ory/editor/core/layout/background", version: "0.0.1" },
+                  state: {
+                    id: 350,
+                    name: "button_grid",
+                    i18n: {},
+                    grid: [
                       {
-                        'id': 'fa87ac49-73b9-4202-9034-f752fa83273c',
-                        'inline': null,
-                        'size': 4,
-                        'content': {
-                          'plugin': {
-                            'name': 'ory/editor/core/content/image',
-                            'version': '0.0.1',
-                          },
-                          'state': {
-                            'src': '/images/react.png',
-                          },
+                        id: 351,
+                        grid: [],
+                        i18n: { label: "Module" },
+                        name: "button_to_v_generated_admin_module",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -13,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_module",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
                         },
+                        objectView: [],
+                        objectColumn: []
                       },
                       {
-                        'id': '491d3370-e551-4b05-be4f-c926d52ee08b',
-                        'inline': null,
-                        'size': 8,
-                        'content': {
-                          'plugin': {
-                            'name': 'ory/editor/core/content/slate',
-                            'version': '0.0.2',
-                          },
-                          'state': {
-                            'serialized': {
-                              'object': 'value',
-                              'document': {
-                                'object': 'document',
-                                'data': {},
-                                'nodes': [
-                                  {
-                                    'object': 'block',
-                                    'type': 'HEADINGS/HEADING-THREE',
-                                    'isVoid': false,
-                                    'data': {},
-                                    'nodes': [
-                                      {
-                                        'object': 'text',
-                                        'leaves': [
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'React Plugin API',
-                                            'marks': [],
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                  {
-                                    'object': 'block',
-                                    'type': 'PARAGRAPH/PARAGRAPH',
-                                    'isVoid': false,
-                                    'data': {},
-                                    'nodes': [
-                                      {
-                                        'object': 'text',
-                                        'leaves': [
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'You don\'t like our rich text solution, require custom layout components, need a twitter feed, want to contribute or even sell plugins? No problem with our easy-to-use React Plugin API!',
-                                            'marks': [],
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                  {
-                                    'object': 'block',
-                                    'type': 'PARAGRAPH/PARAGRAPH',
-                                    'isVoid': false,
-                                    'data': {},
-                                    'nodes': [
-                                      {
-                                        'object': 'text',
-                                        'leaves': [
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'In fact, this section is rendered on top of an exemplary layout plugin!',
-                                            'marks': [],
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                            },
-                          },
+                        id: 372,
+                        grid: [],
+                        i18n: { label: "object" },
+                        name: "button_to_v_generated_admin_object",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -12.01953125,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_object",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
                         },
+                        objectView: [],
+                        objectColumn: []
                       },
+                      {
+                        id: 395,
+                        grid: [],
+                        i18n: { label: "Role" },
+                        name: "button_to_v_generated_admin_role",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -10.55029296875,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_role",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 410,
+                        grid: [],
+                        i18n: { label: "Object field" },
+                        name: "button_to_v_generated_admin_object_field",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -9.3623046875,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_object_field",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 439,
+                        grid: [],
+                        i18n: { label: "Object view" },
+                        name: "button_to_v_generated_admin_object_view",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -8.56855773925781,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_object_view",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 493,
+                        grid: [],
+                        i18n: { label: "Object state" },
+                        name: "button_to_v_generated_admin_object_state",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -7.1695556640625,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_object_state",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 510,
+                        grid: [],
+                        i18n: { label: "State change" },
+                        name: "button_to_v_generated_admin_state_change",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -6.15981292724609,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_state_change",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 564,
+                        grid: [],
+                        i18n: { label: "Page" },
+                        name: "button_to_v_generated_admin_page",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -5.55306172370911,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_page",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 585,
+                        grid: [],
+                        i18n: { label: "Menu" },
+                        name: "button_to_v_generated_admin_menu",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -4.40637218952179,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_menu",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 602,
+                        grid: [],
+                        i18n: { label: "Menu entry" },
+                        name: "button_to_v_generated_admin_menu_entry",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -3.31496888399124,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_menu_entry",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 625,
+                        grid: [],
+                        i18n: { label: "Element" },
+                        name: "button_to_v_generated_admin_element",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -1.76644721627235,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_element",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 652,
+                        grid: [],
+                        i18n: { label: "Element type" },
+                        name: "button_to_v_generated_admin_element_type",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -0.667106941342354,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_element_type",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 671,
+                        grid: [],
+                        i18n: { label: "Text" },
+                        name: "button_to_v_generated_admin_text",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: -0.0887861642986536,
+                        width: 0,
+                        config: {
+                          link: "/v_generated_admin_text",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      },
+                      {
+                        id: 692,
+                        grid: [],
+                        i18n: { label: "Layout" },
+                        name: "button_to_v_generated_admin_layout",
+                        type: { id: 21, name: "ory/editor/core/content/image" },
+                        order: 0.62084576766938,
+                        width: 3,
+                        config: {
+                          link: "/v_generated_admin_layout",
+                          color: "secondary",
+                          style: { height: "50px" },
+                          variant: "contained",
+                          fullWidth: true
+                        },
+                        objectView: [],
+                        objectColumn: []
+                      }
                     ],
-                  },
-                ],
+                    config: { spacing: 16 },
+                    objectView: [],
+                    objectColumn: [],
+                    input: { values: {} },
+                    loaded: false
+                  }
+                }
               },
-            ],
-          },
-          {
-            'id': '5db554dd-6b14-46c6-8dd4-3de3aee946a9',
-            'cells': [
               {
-                'id': '246945c0-f677-4942-b067-ecfef5624911',
-                'inline': null,
-                'size': 12,
-                'content': {
-                  'plugin': {
-                    'name': 'ory/editor/core/content/slate',
-                    'version': '0.0.2',
+                id: "",
+                size: 0,
+                order: -9544.75183105469,
+                content: {
+                  plugin: {
+                    name: "ory/editor/core/content/image",
+                    version: "0.0.1"
                   },
-                  'state': {
-                    'serialized': {
-                      'object': 'value',
-                      'document': {
-                        'object': 'document',
-                        'data': {},
-                        'nodes': [
-                          {
-                            'object': 'block',
-                            'type': 'HEADINGS/HEADING-TWO',
-                            'isVoid': false,
-                            'data': {
-                              'align': 'center',
-                            },
-                            'nodes': [
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': 'That\'s all?',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                        ],
-                      },
+                  state: {
+                    src: '/images/mountain.jpg',
+                    id: 537,
+                    name: "button_to_v_generated_admin_ui",
+                    i18n: { label: "Ui" },
+                    grid: [],
+                    config: {
+                      link: "/v_generated_admin_ui",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
                     },
-                  },
-                },
+                    objectView: [],
+                    objectColumn: [],
+                    input: { values: {} },
+                    loaded: false
+                  }
+                }
               },
-            ],
-          },
-          {
-            'id': 'ba89fcb0-6657-4826-abc0-1ad006dac05c',
-            'cells': [
               {
-                'id': 'b368328c-86fd-4949-b0c8-7277da6c7d6d',
-                'inline': null,
-                'size': 12,
-                'content': {
-                  'plugin': {
-                    'name': 'ory/editor/core/content/slate',
-                    'version': '0.0.2',
+                id: "",
+                size: 0,
+                order: -4777.05706787109,
+                content: {
+                  plugin: {
+                    name: "ory/editor/core/content/image",
+                    version: "0.0.1"
                   },
-                  'state': {
-                    'serialized': {
-                      'object': 'value',
-                      'document': {
-                        'object': 'document',
-                        'data': {},
-                        'nodes': [
-                          {
-                            'object': 'block',
-                            'type': 'PARAGRAPH/PARAGRAPH',
-                            'isVoid': false,
-                            'data': {},
-                            'nodes': [
-                              {
-                                'object': 'text',
-                                'leaves': [
-                                  {
-                                    'object': 'leaf',
-                                    'text': 'No, of course not! We are very proud of these ones as well:',
-                                    'marks': [],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                          {
-                            'object': 'block',
-                            'type': 'LISTS/UNORDERED-LIST',
-                            'isVoid': false,
-                            'data': {},
-                            'nodes': [
-                              {
-                                'object': 'block',
-                                'type': 'LISTS/LIST-ITEM',
-                                'isVoid': false,
-                                'data': {},
-                                'nodes': [
-                                  {
-                                    'object': 'block',
-                                    'type': 'PARAGRAPH/PARAGRAPH',
-                                    'isVoid': false,
-                                    'data': {},
-                                    'nodes': [
-                                      {
-                                        'object': 'text',
-                                        'leaves': [
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'global un-/redo with ',
-                                            'marks': [],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'ctrl+z',
-                                            'marks': [
-                                              {
-                                                'object': 'mark',
-                                                'type': 'EMPHASIZE/EM',
-                                                'data': {},
-                                              },
-                                            ],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': ' / ',
-                                            'marks': [],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'ctrl+y',
-                                            'marks': [
-                                              {
-                                                'object': 'mark',
-                                                'type': 'EMPHASIZE/EM',
-                                                'data': {},
-                                              },
-                                            ],
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'block',
-                                'type': 'LISTS/LIST-ITEM',
-                                'isVoid': false,
-                                'data': {},
-                                'nodes': [
-                                  {
-                                    'object': 'block',
-                                    'type': 'PARAGRAPH/PARAGRAPH',
-                                    'isVoid': false,
-                                    'data': {},
-                                    'nodes': [
-                                      {
-                                        'object': 'text',
-                                        'leaves': [
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'editing shortcuts, for example ',
-                                            'marks': [],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'ctrl+b',
-                                            'marks': [
-                                              {
-                                                'object': 'mark',
-                                                'type': 'EMPHASIZE/STRONG',
-                                                'data': {},
-                                              },
-                                            ],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': ',',
-                                            'marks': [],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': ' ',
-                                            'marks': [
-                                              {
-                                                'object': 'mark',
-                                                'type': 'EMPHASIZE/STRONG',
-                                                'data': {},
-                                              },
-                                            ],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'ctrl+i, ',
-                                            'marks': [
-                                              {
-                                                'object': 'mark',
-                                                'type': 'EMPHASIZE/EM',
-                                                'data': {},
-                                              },
-                                            ],
-                                          },
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'ctrl+u',
-                                            'marks': [
-                                              {
-                                                'object': 'mark',
-                                                'type': 'EMPHASIZE/U',
-                                                'data': {},
-                                              },
-                                            ],
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'block',
-                                'type': 'LISTS/LIST-ITEM',
-                                'isVoid': false,
-                                'data': {},
-                                'nodes': [
-                                  {
-                                    'object': 'block',
-                                    'type': 'PARAGRAPH/PARAGRAPH',
-                                    'isVoid': false,
-                                    'data': {},
-                                    'nodes': [
-                                      {
-                                        'object': 'text',
-                                        'leaves': [
-                                          {
-                                            'object': 'leaf',
-                                            'text': 'collaborative editing',
-                                            'marks': [],
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                              {
-                                'object': 'block',
-                                'type': 'LISTS/LIST-ITEM',
-                                'isVoid': false,
-                                'data': {},
-                                'nodes': [
-                                  {
-                                    'object': 'block',
-                                    'type': 'PARAGRAPH/PARAGRAPH',
-                                    'isVoid': false,
-                                    'data': {},
-                                    'nodes': [
-                                      {
-                                        'object': 'text',
-                                        'leaves': [
-                                          {
-                                            'object': 'leaf',
-                                            'text': '... and more things to come',
-                                            'marks': [],
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                        ],
-                      },
+                  state: {
+                    src: '/images/sea-bg.jpg',
+                    id: 470,
+                    name: "button_to_v_generated_admin_object_view_field",
+                    i18n: { label: "Object view field" },
+                    grid: [],
+                    config: {
+                      link: "/v_generated_admin_object_view_field",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
                     },
-                  },
-                },
-              },
-            ],
-          },
+                    objectView: [],
+                    objectColumn: [],
+                    input: { values: {} },
+                    loaded: false
+                  }
+                }
+              }
+            ]
+          }
         ],
-      },
-    ],
-  },
+        layout: {
+          plugin: { name: "ory/editor/core/layout/background", version: "0.0.1" },
+          state: {
+            id: 345,
+            name: "home",
+            i18n: { label: "Home" },
+            grid: [
+              {
+                id: 346,
+                grid: [],
+                i18n: { text: "Home" },
+                name: "custom_text_home",
+                type: { id: 13, name: "default_custom_text_field" },
+                order: -10016,
+                width: 12,
+                config: { variant: "display1" },
+                objectView: [],
+                objectColumn: []
+              },
+              {
+                id: 350,
+                grid: [
+                  {
+                    id: 351,
+                    grid: [],
+                    i18n: { label: "Module" },
+                    name: "button_to_v_generated_admin_module",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -13,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_module",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 372,
+                    grid: [],
+                    i18n: { label: "object" },
+                    name: "button_to_v_generated_admin_object",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -12.01953125,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_object",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 395,
+                    grid: [],
+                    i18n: { label: "Role" },
+                    name: "button_to_v_generated_admin_role",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -10.55029296875,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_role",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 410,
+                    grid: [],
+                    i18n: { label: "Object field" },
+                    name: "button_to_v_generated_admin_object_field",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -9.3623046875,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_object_field",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 439,
+                    grid: [],
+                    i18n: { label: "Object view" },
+                    name: "button_to_v_generated_admin_object_view",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -8.56855773925781,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_object_view",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 493,
+                    grid: [],
+                    i18n: { label: "Object state" },
+                    name: "button_to_v_generated_admin_object_state",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -7.1695556640625,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_object_state",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 510,
+                    grid: [],
+                    i18n: { label: "State change" },
+                    name: "button_to_v_generated_admin_state_change",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -6.15981292724609,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_state_change",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 564,
+                    grid: [],
+                    i18n: { label: "Page" },
+                    name: "button_to_v_generated_admin_page",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -5.55306172370911,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_page",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 585,
+                    grid: [],
+                    i18n: { label: "Menu" },
+                    name: "button_to_v_generated_admin_menu",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -4.40637218952179,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_menu",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 602,
+                    grid: [],
+                    i18n: { label: "Menu entry" },
+                    name: "button_to_v_generated_admin_menu_entry",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -3.31496888399124,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_menu_entry",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 625,
+                    grid: [],
+                    i18n: { label: "Element" },
+                    name: "button_to_v_generated_admin_element",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -1.76644721627235,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_element",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 652,
+                    grid: [],
+                    i18n: { label: "Element type" },
+                    name: "button_to_v_generated_admin_element_type",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -0.667106941342354,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_element_type",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 671,
+                    grid: [],
+                    i18n: { label: "Text" },
+                    name: "button_to_v_generated_admin_text",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: -0.0887861642986536,
+                    width: 0,
+                    config: {
+                      link: "/v_generated_admin_text",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  },
+                  {
+                    id: 692,
+                    grid: [],
+                    i18n: { label: "Layout" },
+                    name: "button_to_v_generated_admin_layout",
+                    type: { id: 21, name: "ory/editor/core/content/image" },
+                    order: 0.62084576766938,
+                    width: 3,
+                    config: {
+                      link: "/v_generated_admin_layout",
+                      color: "secondary",
+                      style: { height: "50px" },
+                      variant: "contained",
+                      fullWidth: true
+                    },
+                    objectView: [],
+                    objectColumn: []
+                  }
+                ],
+                i18n: {},
+                name: "button_grid",
+                type: { id: 39, name: "default_grid" },
+                order: -9858.390625,
+                width: 12,
+                config: { spacing: 16 },
+                objectView: [],
+                objectColumn: []
+              },
+              {
+                id: 537,
+                grid: [],
+                i18n: { label: "Ui" },
+                name: "button_to_v_generated_admin_ui",
+                type: { id: 21, name: "ory/editor/core/content/image" },
+                order: -9544.75183105469,
+                width: 0,
+                config: {
+                  link: "/v_generated_admin_ui",
+                  color: "secondary",
+                  style: { height: "50px" },
+                  variant: "contained",
+                  fullWidth: true
+                },
+                objectView: [],
+                objectColumn: []
+              },
+              {
+                id: 470,
+                grid: [],
+                i18n: { label: "Object view field" },
+                name: "button_to_v_generated_admin_object_view_field",
+                type: { id: 21, name: "ory/editor/core/content/image" },
+                order: -4777.05706787109,
+                width: 0,
+                config: {
+                  link: "/v_generated_admin_object_view_field",
+                  color: "secondary",
+                  style: { height: "50px" },
+                  variant: "contained",
+                  fullWidth: true
+                },
+                objectView: [],
+                objectColumn: []
+              }
+            ],
+            config: { spacing: 16 },
+            objectView: [],
+            objectColumn: [],
+            input: { values: {} },
+            loaded: false
+          }
+        }
+      }
+    ]
+  }
   /*{
     id: '2',
     cells: [{

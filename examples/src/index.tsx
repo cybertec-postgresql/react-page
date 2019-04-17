@@ -24,11 +24,11 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 // The editor core
-import Editor, { Editable, createEmptyState } from '@cybertec/ory-editor-core';
+import Editor, { Editable, createEmptyState, defaultPlugin } from '@cybertec/ory-editor-core';
 import '@cybertec/ory-editor-core/lib/index.css'; // we also want to load the stylesheets
 
 // The default ui components
-import { Trash, DisplayModeToggle, Toolbar } from '@cybertec/ory-editor-ui';
+import { Trash, DisplayModeToggle, NewToolbar } from '@cybertec/ory-editor-ui';
 import '@cybertec/ory-editor-ui/lib/index.css';
 
 // The rich text area plugin
@@ -67,7 +67,10 @@ import native from 'ory-editor-plugins-default-native';
 import divider from 'ory-editor-plugins-divider';
 
 // Renders json state to html, can be used on server and client side
-import { HTMLRenderer } from 'ory-editor-renderer';
+//import { HTMLRenderer } from 'ory-editor-renderer';
+
+import GeneralIcon from '@material-ui/icons/Language';
+
 
 // The content state
 import content from './content';
@@ -100,7 +103,7 @@ const plugins: Plugins = {
   content: [slate(), spacer, imagePlugin({ imageUpload: fakeImageUploadService('/images/react.png') }), video, divider, html5video],
   layout: [
     background({
-      defaultPlugin: slate(),
+      defaultPlugin,
       imageUpload: fakeImageUploadService('/images/sea-bg.jpg'),
       enabledModes: ModeEnum.COLOR_MODE_FLAG | ModeEnum.IMAGE_MODE_FLAG | ModeEnum.GRADIENT_MODE_FLAG,
     }),
@@ -113,7 +116,7 @@ const plugins: Plugins = {
 };
 
 const editor = new Editor({
-  plugins: plugins,
+  plugins,
   // pass the content states
   editables: [
     ...content,
@@ -140,19 +143,14 @@ elements.forEach(element => {
   ), element);
 });
 
+
 // Render the ui controls, you could implement your own here, of course.
 ReactDOM.render((
   <div>
     <Trash editor={editor} />
     <DisplayModeToggle editor={editor} />
-    <Toolbar editor={editor} />
+    <NewToolbar editor={editor} widgetGroups={[{name: 'admin', icon: <GeneralIcon />}, {name: 'advanced'}]} />
   </div>
 ), document.getElementById('controls'));
-
-// Render as beautified mark up (html)
-ReactDOM.render(
-  <HTMLRenderer state={content[0]} plugins={plugins} />,
-  document.getElementById('editable-static')
-);
 
 editor.trigger.editable.add({ id: '10', cells: [] });
