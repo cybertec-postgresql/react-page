@@ -21,14 +21,24 @@
  */
 
 import { emptyFilter } from './empty';
+import { defaultPluginFilter } from './defaultPlugin';
 import { Row, Cell } from '../../../types/editable';
 
 export const flatten = function<T>(c: Array<T>, n: Array<T>): Array<T> {
   return [...c, ...n];
 };
 
-export const optimizeCells = (cells: Array<Cell> = []): Array<Cell> =>
-  cells.filter(emptyFilter);
+export const optimizeCells = (cells: Array<Cell> = []): Array<Cell> => {
+  let newCells = cells;
+
+  newCells = newCells.filter(emptyFilter);
+
+  if (newCells.length > 1) {
+    newCells = newCells.filter(defaultPluginFilter);
+  }
+
+  return newCells;
+}
 
 export const optimizeRows = (rows: Array<Row> = []): Array<Row> =>
   rows.filter(emptyFilter);

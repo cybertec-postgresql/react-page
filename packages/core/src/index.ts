@@ -41,6 +41,7 @@ import {
 } from './service/plugin/classes';
 import { isProduction } from './const';
 import { searchNodeEverywhere } from './selector/editable';
+import defaultPlugin from './service/plugin/default'
 
 let instance: Editor;
 
@@ -182,6 +183,7 @@ export {
   Editor,
   oryReducer,
   searchNodeEverywhere,
+  defaultPlugin
 };
 
 export const createEmptyState: () => EditableType = () =>

@@ -93,7 +93,7 @@ const c = classes;
 /**
  * A list of matrices that are used to define the callback function.
  *
- * @type {{6x6: *[], 10x10: *[], 10x10-no-inline: *[]}}
+ * @type {{1x1: *[], 6x6: *[], 10x10: *[], 10x10-no-inline: *[]}}
  */
 export const defaultMatrices: MatrixList = {
   '1x1': [

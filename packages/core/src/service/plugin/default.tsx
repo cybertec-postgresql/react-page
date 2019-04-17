@@ -53,7 +53,7 @@ const _defaultContentPlugin: ContentPluginConfig<{}> = {
   version: '0.0.1',
   createInitialState: () => ({
     value:
-      'This is the default plugin from the core package. To replace it, set the "defaultPlugin" value in the editor config.',
+      'No widget here. Drag widget from Widget Toolbar',
   }),
 };
 
