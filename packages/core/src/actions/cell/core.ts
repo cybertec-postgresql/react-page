@@ -34,6 +34,7 @@ export const CELL_BLUR_ALL = 'CELL_BLUR_ALL';
 export const CELL_FOCUS_PREV = 'CELL_FOCUS_PREV';
 export const CELL_FOCUS_NEXT = 'CELL_FOCUS_NEXT';
 export const CELL_CREATE_FALLBACK = 'CELL_CREATE_FALLBACK';
+export const CELL_CREATE_DEFAULT = 'CELL_CREATE_DEFAULT';
 
 export interface UpdateCellContentAction extends Action {
   ts: Date;
@@ -229,8 +230,31 @@ export const createFallbackCell = (
   fallback,
 });
 
+export interface CreateDefaultCellAction extends Action {
+  ts: Date;
+  row: string;
+  ids: string[];
+  // tslint:disable-next-line:no-any
+  defaultPlugin: any;
+}
+/**
+ * Creates a default cell, usually done when an row is empty.
+ */
+export const createDefaultCell = (
+  // tslint:disable-next-line:no-any
+  defaultPlugin: any,
+  row: string
+): CreateDefaultCellAction => ({
+  type: CELL_CREATE_DEFAULT,
+  ts: new Date(),
+  row,
+  ids: gen(1),
+  defaultPlugin,
+});
+
 export const coreActions = {
   createFallbackCell,
+  createDefaultCell,
   blurAllCells,
   blurCell,
   focusPreviousCell,

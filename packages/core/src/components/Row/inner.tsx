@@ -21,41 +21,82 @@
  */
 
 import * as React from 'react';
+
+import { connect } from 'react-redux';
+
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 
 import Cell from '../Cell';
 import { ComponetizedRow } from '../../types/editable';
 
-const Inner = ({
-  editable,
-  ancestors,
-  node: { id, hover, cells = [], hasInlineChildren },
-  containerHeight,
-  blurAllCells,
-  containerWidth,
-}: ComponetizedRow) => (
-  <Grid
-    container={true}
-    spacing={8}
-    className={classNames('ory-row', {
-      'ory-row-is-hovering-this': Boolean(hover),
-      [`ory-row-is-hovering-${hover || ''}`]: Boolean(hover),
-      'ory-row-has-floating-children': hasInlineChildren,
-    })}
-    onClick={blurAllCells}
-  >
-    {cells.map((c: string) => (
-      <Cell
-        rowWidth={containerWidth}
-        rowHeight={containerHeight}
-        ancestors={[...ancestors, id]}
-        editable={editable}
-        key={c}
-        id={c}
-      />
-    ))}
-  </Grid>
-);
+import { ContentPlugin, LayoutPlugin } from '../../service/plugin/classes';
+import defaultPlugin from '../../service/plugin/default';
 
-export default Inner;
+import { createDefaultCell } from '../../actions/cell';
+
+class Inner extends React.PureComponent<ComponetizedRow & {
+  createDefaultCell(plugin: ContentPlugin | LayoutPlugin, row: string): void;
+}> {
+  componentDidMount() {
+    this.createDefaultCell();
+  }
+
+  componentDidUpdate() {
+    this.createDefaultCell();
+  }
+
+  createDefaultCell = () => {
+    const { node, id } = this.props;
+    if (!node) {
+      return;
+    }
+
+    const { cells = [] } = node;
+    if (cells.length === 0) {
+      this.props.createDefaultCell(new ContentPlugin(defaultPlugin), id);
+    }
+  }
+
+  render() {
+    const {
+      editable,
+      ancestors,
+      node: { id, hover, cells = [], hasInlineChildren },
+      containerHeight,
+      blurAllCells,
+      containerWidth,
+    } = this.props;
+
+    return (
+      <Grid
+        container={true}
+        spacing={8}
+        className={classNames('ory-row', {
+          'ory-row-is-hovering-this': Boolean(hover),
+          [`ory-row-is-hovering-${hover || ''}`]: Boolean(hover),
+          'ory-row-has-floating-children': hasInlineChildren,
+        })}
+        onClick={blurAllCells}
+      >
+        {cells.map((c: string) => (
+          <Cell
+            rowWidth={containerWidth}
+            rowHeight={containerHeight}
+            ancestors={[...ancestors, id]}
+            editable={editable}
+            key={c}
+            id={c}
+          />
+        ))}
+      </Grid>
+    );
+  }
+}
+
+const mapDispatchToProps = { createDefaultCell };
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Inner);

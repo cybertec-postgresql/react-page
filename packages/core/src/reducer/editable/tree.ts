@@ -48,7 +48,8 @@ import {
   CELL_RESIZE,
   CELL_FOCUS,
   CELL_BLUR,
-  CELL_BLUR_ALL
+  CELL_BLUR_ALL,
+  CELL_CREATE_DEFAULT
 } from '../../actions/cell';
 
 import { Cell, Row } from '../../types/editable';
@@ -374,6 +375,21 @@ export const row = (s: Row, a: AnyAction, c: any): Row =>
               return { ...reduce(), hover: action.position };
             }
             return reduce();
+
+          case CELL_CREATE_DEFAULT:
+            if (state.id === action.row) {
+
+              return { ...reduce(), cells: [{
+                ...createCell(),
+                content: {
+                  plugin: action.defaultPlugin,
+                  state: action.defaultPlugin.createInitialState(),
+                },
+                id: action.ids[0],
+              }] };
+            }
+            return reduce();
+
 
           default:
             return reduce();
