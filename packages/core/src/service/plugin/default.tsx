@@ -22,30 +22,10 @@
 
 import * as React from 'react';
 import { ContentPluginProps, ContentPluginConfig } from './classes';
-import { EditorState } from '../../types/editor';
-
-const handleChange = (onChange: (state: EditorState) => void) => (
-  e: React.ChangeEvent
-) => {
-  if (e.target instanceof HTMLInputElement) {
-    onChange({ value: e.target.value });
-  }
-};
 
 const Default: React.SFC<ContentPluginProps<{ value: string }>> = ({
-  readOnly,
   state: { value },
-  onChange,
-})  =>
-  readOnly ? (
-    <div>{value}</div>
-  ) : (
-    <textarea
-      style={{ width: '100%' }}
-      value={value}
-      onChange={handleChange(onChange)}
-    />
-  );
+}) => <div>{value}</div>;
 
 const _defaultContentPlugin: ContentPluginConfig<{}> = {
   Component: Default,
@@ -55,6 +35,10 @@ const _defaultContentPlugin: ContentPluginConfig<{}> = {
     value:
       'No widget here. Drag widget from Widget Toolbar',
   }),
+};
+
+export {
+  Default as DefaultComponent
 };
 
 export default _defaultContentPlugin;
