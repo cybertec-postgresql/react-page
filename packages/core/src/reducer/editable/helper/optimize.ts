@@ -20,7 +20,6 @@
  *
  */
 
-import { emptyFilter } from './empty';
 import { defaultPluginFilter } from './defaultPlugin';
 import { Row, Cell } from '../../../types/editable';
 
@@ -31,8 +30,6 @@ export const flatten = function<T>(c: Array<T>, n: Array<T>): Array<T> {
 export const optimizeCells = (cells: Array<Cell> = []): Array<Cell> => {
   let newCells = cells;
 
-  newCells = newCells.filter(emptyFilter);
-
   if (newCells.length > 1) {
     newCells = newCells.filter(defaultPluginFilter);
   }
@@ -41,7 +38,7 @@ export const optimizeCells = (cells: Array<Cell> = []): Array<Cell> => {
 }
 
 export const optimizeRows = (rows: Array<Row> = []): Array<Row> =>
-  rows.filter(emptyFilter);
+  rows;
 
 export const optimizeCell = ({ rows, ...other }: Cell): Cell => ({
   ...other,
