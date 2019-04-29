@@ -59,16 +59,16 @@ class Tabs extends React.Component<TabsProps, TabsState> {
     const { activeTab } = this.state;
 
     const widgets = [...content, ...layout].sort((a, b) => a.text.localeCompare(b.text));
+    const generalFilter = widgets.filter((c) => c.group === undefined);
     const groupedWidgets = activeTab !== -1 &&
       widgets.filter((c) => c.group === widgetGroups[activeTab].name)
         .map((plugin: ContentPlugin | LayoutPlugin, index) => (
           <TabContent key={index} plugin={plugin} />
         ));
     const generalWidgets = activeTab === -1 &&
-      widgets.filter((c) => c.group === undefined)
-        .map((plugin: ContentPlugin | LayoutPlugin, index) => (
-          <TabContent key={index} plugin={plugin} />
-        ));
+      generalFilter.map((plugin: ContentPlugin | LayoutPlugin, index) => (
+        <TabContent key={index} plugin={plugin} />
+      ));
     const withoutWidgets = activeTab !== -1 &&
         !groupedWidgets.length && <Typography>No widgets for this group</Typography>;
 
@@ -85,7 +85,9 @@ class Tabs extends React.Component<TabsProps, TabsState> {
               <TabIndicator key={index} label={widget.name.toUpperCase()} icon={widget.icon} />
             ))}
 
-            <TabIndicator label="General" value={-1} icon={<GeneralIcon />} />
+            {generalFilter.length && (
+              <TabIndicator label="General" value={-1} icon={<GeneralIcon />} />
+            )}
           </VerticalTabs>
           </Grid>
           <Grid item={true} xs={8} className={classes.tabContent}>
