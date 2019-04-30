@@ -4,23 +4,33 @@ import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem';
 import Tooltip from '@material-ui/core/Tooltip';
 import ListItemText from '@material-ui/core/ListItemText';
-import { withStyles, WithStyles } from '@material-ui/core/styles';
+import { withStyles, WithStyles, Theme } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
 
 import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
 
 import draggable from '../Draggable/index';
 
-const styles = ({}) => ({
+import InformationDialog from './InformationDialog';
+
+const styles = (theme: Theme) => ({
   item: {
     flexDirection: 'column' as 'column',
     background: '#fff',
-    textAlign: 'center' as 'center',
     boxShadow: 'rgba(0, 0, 0, 0.05) 0px 1px 1px',
+    textAlign: 'center' as 'center',
     borderRadius: '4px',
     '&:hover': {
-      cursor: 'grab',
-    },
+      cursor: 'grab'
+    }
   },
+  itemAvatar: {
+    margin: '0 auto'
+  },
+  information: {
+    textAlign: 'right' as 'right'
+  }
 });
 
 export interface ItemProps {
@@ -29,9 +39,33 @@ export interface ItemProps {
   insert: any;
 }
 
-class Item extends React.Component<ItemProps & WithStyles<typeof styles>> {
+interface ItemState {
+  openInformationDialog: boolean;
+}
+
+class Item extends React.Component<
+  ItemProps & WithStyles<typeof styles>,
+  ItemState
+> {
+  public state = {
+    openInformationDialog: false,
+  };
+
+  public handleOpenInformationDialog = () => {
+    this.setState({
+      openInformationDialog: true,
+    });
+  };
+
+  public handleCloseInformationDialog = () => {
+    this.setState({
+      openInformationDialog: false,
+    });
+  };
+
   render() {
     const { classes, plugin, insert } = this.props;
+    const { openInformationDialog } = this.state;
 
     if (!plugin.IconComponent && !plugin.text) {
       // logger.warn('Plugin text or plugin icon missing', plugin)
@@ -42,15 +76,31 @@ class Item extends React.Component<ItemProps & WithStyles<typeof styles>> {
 
     return (
       <Draggable insert={insert}>
-        <Tooltip
-          placement="bottom"
-          title="Drag me"
-        >
-          <ListItem className={classes.item}>
-            <Avatar children={plugin.IconComponent} />
-            <ListItemText primary={plugin.text} />
-          </ListItem>
-        </Tooltip>
+        <InformationDialog
+          open={openInformationDialog}
+          plugin={plugin}
+          handleClose={this.handleCloseInformationDialog}
+        />
+
+        <ListItem className={classes.item}>
+          <Tooltip placement="bottom" title="Drag me">
+            <div>
+              <Avatar
+                children={plugin.IconComponent}
+                className={classes.itemAvatar}
+              />
+              <ListItemText primary={plugin.text} />
+            </div>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Information">
+            <IconButton
+              aria-label="Information"
+              onClick={this.handleOpenInformationDialog}
+            >
+              <InfoIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </ListItem>
       </Draggable>
     );
   }
