@@ -42,7 +42,7 @@ export type InnerProps = InnerReduxProps & InnerActionProps;
 const Inner: React.SFC<InnerProps> = props => (
   <Button
     icon={<ViewQuilt />}
-    description="Move widgets"
+    description="Move elements"
     active={props.isLayoutMode}
     onClick={props.layoutMode}
   />

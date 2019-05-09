@@ -41,7 +41,7 @@ export type InnerProps = InnerReduxProps & InnerActionProps;
 const Inner: React.SFC<InnerProps> = props => (
   <Button
     icon={<Resize />}
-    description="Resize widgets"
+    description="Resize elements"
     active={props.isResizeMode}
     onClick={props.resizeMode}
   />

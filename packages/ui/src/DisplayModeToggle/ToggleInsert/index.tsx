@@ -42,7 +42,7 @@ export type InnerProps = InnerReduxProps & InnerActionProps;
 const Inner: React.SFC<InnerProps> = props => (
   <Button
     icon={<ContentAdd />}
-    description="Add widgets"
+    description="Add elements"
     active={props.isInsertMode}
     onClick={props.insertMode}
   />
