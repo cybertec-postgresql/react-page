@@ -25,7 +25,6 @@ import Provider from '../Provider/index';
 import ToggleEdit from './ToggleEdit/index';
 import ToggleInsert from './ToggleInsert/index';
 import ToggleLayout from './ToggleLayout/index';
-import TogglePreview from './TogglePreview/index';
 import ToggleResize from './ToggleResize/index';
 import { ProviderProps } from './../Provider/index';
 
@@ -49,11 +48,6 @@ const Inner: React.SFC<ProviderProps> = props => (
 
       <div className="ory-controls-mode-toggle-control">
         <ToggleResize />
-        <div className="ory-controls-mode-toggle-clearfix" />
-      </div>
-
-      <div className="ory-controls-mode-toggle-control">
-        <TogglePreview />
         <div className="ory-controls-mode-toggle-clearfix" />
       </div>
     </div>

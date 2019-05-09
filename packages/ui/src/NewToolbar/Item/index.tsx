@@ -22,15 +22,15 @@ const styles = (theme: Theme) => ({
     textAlign: 'center' as 'center',
     borderRadius: '4px',
     '&:hover': {
-      cursor: 'grab'
-    }
+      cursor: 'grab',
+    },
   },
   itemAvatar: {
-    margin: '0 auto'
+    margin: '0 auto',
   },
   information: {
-    textAlign: 'right' as 'right'
-  }
+    textAlign: 'right' as 'right',
+  },
 });
 
 export interface ItemProps {

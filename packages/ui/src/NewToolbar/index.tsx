@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import Drawer from '@material-ui/core/Drawer';
-import { withStyles, WithStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import { Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
+import CloseIcon from '@material-ui/icons/Close';
+
+import { editMode } from '@cybertec/ory-editor-core/lib/actions/display';
 import { isInsertMode } from '@cybertec/ory-editor-core/lib/selector/display';
 import { Editor } from '@cybertec/ory-editor-core/lib';
 import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
@@ -14,11 +18,26 @@ import Tabs from './Tabs';
 import Provider from '../Provider/index';
 import { ProviderProps, WidgetGroup } from './../Provider/index';
 
-const styles = ({}) => ({
+const styles = (theme: Theme) => ({
   drawer: {
     flexShrink: 0,
   },
+  closeButton: {
+    position: 'absolute' as 'absolute',
+    right: -theme.spacing.unit * 2.5,
+    top: 0,
+    color: theme.palette.grey[500],
+    overflow: 'visible',
+    background: 'rgb(249, 249, 249)',
+    '&:hover': {
+      background: 'rgb(249, 249, 249)',
+    },
+  },
 });
+
+export interface InnerActionProps {
+  editMode: React.MouseEventHandler<HTMLElement>;
+}
 
 type Props = {
   isInsertMode: boolean;
@@ -26,7 +45,7 @@ type Props = {
   noPluginFoundContent: JSX.Element | string;
   drawerWidth: string;
   widgetGroups?: WidgetGroup[];
-} & WithStyles<typeof styles>;
+} & WithStyles<typeof styles> & InnerActionProps;
 
 interface State {
   activeTab: number;
@@ -51,6 +70,7 @@ class Raw extends React.Component<Props, State> {
       editor: { plugins },
       widgetGroups,
       drawerWidth,
+      classes,
     } = this.props;
     const content = plugins.plugins.content.filter(this.filter);
     const layout = plugins.plugins.layout.filter(this.filter);
@@ -60,8 +80,11 @@ class Raw extends React.Component<Props, State> {
         variant="persistent"
         className="ory-toolbar-drawer"
         open={this.props.isInsertMode}
-        PaperProps={{ style: { width: drawerWidth, maxWidth: drawerWidth } }}
+        PaperProps={{ style: { width: drawerWidth, maxWidth: drawerWidth, overflow: 'inherit' } }}
       >
+        <IconButton aria-label="Close" className={classes.closeButton} onClick={this.props.editMode}>
+          <CloseIcon />
+        </IconButton>
         <Tabs content={content} layout={layout} widgetGroups={widgetGroups} />
       </Drawer>
     );
@@ -69,8 +92,9 @@ class Raw extends React.Component<Props, State> {
 }
 
 const mapStateToProps = createStructuredSelector({ isInsertMode });
+const mapDispatchToProps = { editMode };
 
-const Decorated = connect(mapStateToProps)(withStyles(styles)(Raw));
+const Decorated = connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Raw));
 
 const Toolbar: React.SFC<ProviderProps> = props => (
   <Provider {...props}>
