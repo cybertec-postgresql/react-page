@@ -54,11 +54,12 @@ export type DialogInformationProps = {
   handleClose: () => void;
   open: boolean;
   plugin: Plugin;
+  description?: string;
 };
 
 class DialogInformation extends React.Component<DialogInformationProps> {
   render() {
-    const { open, handleClose, plugin } = this.props;
+    const { open, handleClose, plugin, description } = this.props;
     return (
       <div>
         <Dialog
@@ -72,7 +73,7 @@ class DialogInformation extends React.Component<DialogInformationProps> {
           </DialogTitle>
           <DialogContent>
             <Typography gutterBottom={true}>
-              {plugin.description ? plugin.description : 'No description'}
+              {description ? description : plugin.description || 'No description'}
             </Typography>
           </DialogContent>
         </Dialog>

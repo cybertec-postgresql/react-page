@@ -41,20 +41,26 @@ export interface ItemProps {
 
 interface ItemState {
   openInformationDialog: boolean;
+  description?: string;
 }
 
 class Item extends React.Component<
   ItemProps & WithStyles<typeof styles>,
   ItemState
 > {
-  public state = {
+  public state: ItemState  = {
     openInformationDialog: false,
   };
 
   public handleOpenInformationDialog = () => {
-    this.setState({
-      openInformationDialog: true,
-    });
+    if (typeof this.props.plugin.handleMoreInformation === 'function') {
+      this.props.plugin.handleMoreInformation(this.props.plugin.name).then(description => {
+        this.setState({
+          openInformationDialog: true,
+          description,
+        });
+      });
+    }
   };
 
   public handleCloseInformationDialog = () => {
@@ -65,7 +71,7 @@ class Item extends React.Component<
 
   render() {
     const { classes, plugin, insert } = this.props;
-    const { openInformationDialog } = this.state;
+    const { openInformationDialog, description } = this.state;
 
     if (!plugin.IconComponent && !plugin.text) {
       // logger.warn('Plugin text or plugin icon missing', plugin)
@@ -79,6 +85,7 @@ class Item extends React.Component<
         <InformationDialog
           open={openInformationDialog}
           plugin={plugin}
+          description={description}
           handleClose={this.handleCloseInformationDialog}
         />
 

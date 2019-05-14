@@ -74,8 +74,6 @@ const target = {
 
     const { node: n } = maybeNode;
 
-    console.log(n);
-
     return !!n.parent;
   },
 

@@ -232,7 +232,9 @@ export type PluginProps<
 
   editable?: string;
 
-  handleResize?(size: number, state: object): void;
+  handleResize?: (size: number, state: object) => void;
+
+  handleMoreInformation?: (pluginName: string) => Promise<string>;
   /**
    * Should be called with the new state if the plugin's state changes.
    *
@@ -354,6 +356,7 @@ export class Plugin<T = any, ExtraProps = {}> {
       handleFocus,
       handleBlur,
       handleResize,
+      handleMoreInformation,
       reducer,
       migrations,
     } = config;
@@ -391,6 +394,7 @@ export class Plugin<T = any, ExtraProps = {}> {
     this.handleFocus = handleFocus ? handleFocus.bind(this) : this.handleFocus;
     this.handleBlur = handleBlur ? handleBlur.bind(this) : this.handleBlur;
     this.handleResize = handleResize ? handleResize.bind(this) : this.handleResize;
+    this.handleMoreInformation = handleMoreInformation ? handleMoreInformation.bind(this) : this.handleMoreInformation;
     this.reducer = reducer ? reducer.bind(this) : this.reducer;
   }
 
@@ -471,6 +475,13 @@ export class Plugin<T = any, ExtraProps = {}> {
    * @param size: number
    */
   handleResize = (size: number): void => null;
+
+  /**
+   * This function will be to insert information in plugin popup.
+   *
+   * @param pluginName: string
+   */
+  handleMoreInformation = (pluginName: string): Promise<string> => Promise.resolve(undefined);
 
   /**
    * Specify a custom reducer for the plugin's cell.
