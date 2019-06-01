@@ -24,12 +24,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 // The editor core
-import Editor, { Editable, createEmptyState, defaultPlugin } from '@cybertec/ory-editor-core';
-import '@cybertec/ory-editor-core/lib/index.css'; // we also want to load the stylesheets
+import Editor, { Editable, createEmptyState, defaultPlugin } from '@cybertec/react-page-core';
+import '@cybertec/react-page-core/lib/index.css'; // we also want to load the stylesheets
 
 // The default ui components
-import { Trash, DisplayModeToggle, NewToolbar } from '@cybertec/ory-editor-ui';
-import '@cybertec/ory-editor-ui/lib/index.css';
+import { Trash, DisplayModeToggle, NewToolbar } from '@cybertec/react-page-ui';
+import '@cybertec/react-page-ui/lib/index.css';
 
 // The rich text area plugin
 import slate from 'ory-editor-plugins-slate';
@@ -75,8 +75,8 @@ import GeneralIcon from '@material-ui/icons/Language';
 // The content state
 import content from './content';
 import './styles.css';
-import { ImageUploadType } from '@cybertec/ory-editor-ui/lib/ImageUpload';
-import { Plugins } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { ImageUploadType } from '@cybertec/react-page-ui/lib/ImageUpload';
+import { Plugins } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 const fakeImageUploadService: (url: string) => ImageUploadType = (defaultUrl) => (file, reportProgress) => {
   return new Promise((resolve, reject) => {

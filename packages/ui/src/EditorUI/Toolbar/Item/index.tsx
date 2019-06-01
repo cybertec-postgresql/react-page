@@ -6,7 +6,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import ListItemText from '@material-ui/core/ListItemText';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { Plugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 import draggable from '../Draggable/index';
 

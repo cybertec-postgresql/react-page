@@ -8,7 +8,7 @@ import { withStyles, WithStyles, Theme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 
-import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { Plugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 import draggable from '../Draggable/index';
 

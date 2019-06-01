@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ContentPlugin, LayoutPlugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { ContentPlugin, LayoutPlugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 import TabContainer from './TabContainer';
 import Item from '../Item';

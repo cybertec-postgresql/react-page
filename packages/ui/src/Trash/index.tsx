@@ -24,10 +24,10 @@ import * as React from 'react';
 import { DropTarget as dropTarget } from 'react-dnd';
 import Delete from '@material-ui/icons/Delete';
 import Fab from '@material-ui/core/Fab';
-import { Editor } from '@cybertec/ory-editor-core';
+import { Editor } from '@cybertec/react-page-core';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { removeCell } from '@cybertec/ory-editor-core/lib/actions/cell/core';
+import { removeCell } from '@cybertec/react-page-core/lib/actions/cell/core';
 import throttle from 'lodash.throttle';
 import {
   isEditMode,
@@ -35,10 +35,10 @@ import {
   isPreviewMode,
   isInsertMode,
   isResizeMode
-} from '@cybertec/ory-editor-core/lib/selector/display';
-import { searchNodeEverywhere } from "@cybertec/ory-editor-core/lib/selector/editable";
-import { RootState } from "@cybertec/ory-editor-core/lib/types/state";
-import { LayoutPlugin, ContentPlugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+} from '@cybertec/react-page-core/lib/selector/display';
+import { searchNodeEverywhere } from "@cybertec/react-page-core/lib/selector/editable";
+import { RootState } from "@cybertec/react-page-core/lib/types/state";
+import { LayoutPlugin, ContentPlugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 import { createStructuredSelector } from 'reselect';
 

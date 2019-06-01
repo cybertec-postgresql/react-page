@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { SpacerControlsProps } from '../types/controls';
 import { Resizable } from 'react-resizable';
-import { BottomToolbar } from '@cybertec/ory-editor-ui';
-import { darkTheme } from '@cybertec/ory-editor-ui/lib/ThemeProvider';
+import { BottomToolbar } from '@cybertec/react-page-ui';
+import { darkTheme } from '@cybertec/react-page-ui/lib/ThemeProvider';
 import { defaultSpacerState } from './../default/state';
 import classNames from 'classnames';
 import TextField from '@material-ui/core/TextField';

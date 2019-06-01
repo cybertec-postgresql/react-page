@@ -1,6 +1,6 @@
 import { BackgroundProps } from './component';
-import { RGBColor } from '@cybertec/ory-editor-ui/lib/ColorPicker';
-import { ImageLoaded } from '@cybertec/ory-editor-ui/lib/ImageUpload';
+import { RGBColor } from '@cybertec/react-page-ui/lib/ColorPicker';
+import { ImageLoaded } from '@cybertec/react-page-ui/lib/ImageUpload';
 
 export interface BackgroundRendererExtraProps {
   backgroundColorPreview?: RGBColor;

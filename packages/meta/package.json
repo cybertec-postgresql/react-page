@@ -1,11 +1,11 @@
 {
-  "name": "@cybertec/ory-editor",
+  "name": "@cybertec/react-page",
   "version": "0.0.0",
-  "author": "Cybertec Schönig & Schönig GmbH",
+  "author": "ORY GmbH",
   "license": "GNU Lesser General Public License v3.0",
   "dependencies": {
-    "@cybertec/ory-editor-core": "0.0.0",
-    "@cybertec/ory-editor-ui": "0.0.0"
+    "@cybertec/react-page-core": "0.0.0",
+    "@cybertec/react-page-ui": "0.0.0"
   },
   "publishConfig": {
     "access": "public"

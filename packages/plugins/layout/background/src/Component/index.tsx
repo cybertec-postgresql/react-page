@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { BackgroundProps } from '../types/component';
-import { RGBColor } from '@cybertec/ory-editor-ui/lib/ColorPicker';
-import { ImageLoaded } from '@cybertec/ory-editor-ui/lib/ImageUpload';
+import { RGBColor } from '@cybertec/react-page-ui/lib/ColorPicker';
+import { ImageLoaded } from '@cybertec/react-page-ui/lib/ImageUpload';
 import { ModeEnum } from '../types/modeEnum';
 import { BackgroundApi } from '../types/api';
 
@@ -96,7 +96,7 @@ BackgroundState
       Controls,
     } = this.props;
     return (
-      <Controls 
+      <Controls
         {...this.props}
         handleChangeDarken={this.handleChangeDarken}
         handleChangeDarkenPreview={this.handleChangeDarkenPreview}

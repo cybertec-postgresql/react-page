@@ -9,10 +9,10 @@ import { Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
 import CloseIcon from '@material-ui/icons/Close';
 
-import { editMode } from '@cybertec/ory-editor-core/lib/actions/display';
-import { isInsertMode } from '@cybertec/ory-editor-core/lib/selector/display';
-import { Editor } from '@cybertec/ory-editor-core/lib';
-import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { editMode } from '@cybertec/react-page-core/lib/actions/display';
+import { isInsertMode } from '@cybertec/react-page-core/lib/selector/display';
+import { Editor } from '@cybertec/react-page-core/lib';
+import { Plugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 import Tabs from './Tabs';
 import Provider from '../Provider/index';
@@ -47,11 +47,7 @@ type Props = {
   widgetGroups?: WidgetGroup[];
 } & WithStyles<typeof styles> & InnerActionProps;
 
-interface State {
-  activeTab: number;
-}
-
-class Raw extends React.Component<Props, State> {
+class Raw extends React.Component<Props> {
   static defaultProps = {
     noPluginFoundContent: 'No widgets found',
     drawerWidth: '400px',
@@ -65,12 +61,17 @@ class Raw extends React.Component<Props, State> {
     );
   }
 
+  getPaperProps = () => {
+    const { drawerWidth } = this.props;
+
+    return { style: { width: drawerWidth, maxWidth: drawerWidth, overflow: 'inherit' } };
+  }
+
   render() {
     const {
       editor: { plugins },
       widgetGroups,
-      drawerWidth,
-      classes,
+      classes
     } = this.props;
     const content = plugins.plugins.content.filter(this.filter);
     const layout = plugins.plugins.layout.filter(this.filter);
@@ -80,12 +81,12 @@ class Raw extends React.Component<Props, State> {
         variant="persistent"
         className="ory-toolbar-drawer"
         open={this.props.isInsertMode}
-        PaperProps={{ style: { width: drawerWidth, maxWidth: drawerWidth, overflow: 'inherit' } }}
+        PaperProps={this.getPaperProps()}
       >
         <IconButton aria-label="Close" className={classes.closeButton} onClick={this.props.editMode}>
           <CloseIcon />
         </IconButton>
-        <Tabs content={content} layout={layout} widgetGroups={widgetGroups} />
+        <Tabs content={content} layout={layout} widgetGroups={widgetGroups} isInsertMode={this.props.isInsertMode} />
       </Drawer>
     );
   }

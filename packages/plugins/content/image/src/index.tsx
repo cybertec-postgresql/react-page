@@ -23,7 +23,7 @@
 import createPlugin from './createPlugin';
 import ImageHtmlRenderer from './Renderer/ImageHtmlRenderer';
 import ImageDefaultControls from './Controls/ImageDefaultControls';
-import { ContentPluginConfig } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { ContentPluginConfig } from '@cybertec/react-page-core/lib/service/plugin/classes';
 import { ImageState } from './types/state';
 import { ImageSettings } from './types/settings';
 

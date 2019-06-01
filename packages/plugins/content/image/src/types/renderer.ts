@@ -1,5 +1,5 @@
 import { ImageProps } from './component';
-import { ImageLoaded } from '@cybertec/ory-editor-ui/lib/ImageUpload';
+import { ImageLoaded } from '@cybertec/react-page-ui/lib/ImageUpload';
 
 export interface ImageRendererExtraProps {
   imagePreview?: ImageLoaded;

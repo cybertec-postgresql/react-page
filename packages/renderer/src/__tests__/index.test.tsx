@@ -24,10 +24,10 @@ import { mount, render } from 'enzyme';
 import * as React from 'react';
 import { HTMLRenderer } from '../index';
 import slate from 'ory-editor-plugins-slate';
-import { LayoutPluginProps } from 'ory-editor-core/lib/service/plugin/classes';
-import { Plugins } from 'ory-editor-core/src/service/plugin/classes';
-import { ContentPluginProps } from 'ory-editor-core/lib/service/plugin/classes';
-import { EditableType } from 'ory-editor-core/lib/types/editable';
+import { LayoutPluginProps } from '@cybertec/react-page-core/lib/service/plugin/classes';
+import { Plugins } from '@cybertec/react-page-core/src/service/plugin/classes';
+import { ContentPluginProps } from '@cybertec/react-page-core/lib/service/plugin/classes';
+import { EditableType } from '@cybertec/react-page-core/lib/types/editable';
 
 const Layout = ({ children, state: { className } }) => (
   <div className={`${className}`}>{children}</div>

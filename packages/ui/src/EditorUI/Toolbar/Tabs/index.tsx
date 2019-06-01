@@ -3,7 +3,7 @@ import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { ContentPlugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { ContentPlugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 import { WidgetGroup } from '../../../Provider';
 

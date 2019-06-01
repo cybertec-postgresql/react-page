@@ -8,7 +8,7 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { Plugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 type DialogTitleProps = Partial<WithStyles> & ButtonProps & {
   onClose: () => void;

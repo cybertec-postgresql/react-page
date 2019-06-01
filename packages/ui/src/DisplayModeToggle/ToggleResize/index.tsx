@@ -22,8 +22,8 @@
 import * as React from 'react';
 import Resize from '@material-ui/icons/SettingsOverscan';
 import { connect } from 'react-redux';
-import { resizeMode } from '@cybertec/ory-editor-core/lib/actions/display';
-import { isResizeMode } from '@cybertec/ory-editor-core/lib/selector/display';
+import { resizeMode } from '@cybertec/react-page-core/lib/actions/display';
+import { isResizeMode } from '@cybertec/react-page-core/lib/selector/display';
 import { createStructuredSelector } from 'reselect';
 
 import Button from '../Button/index';

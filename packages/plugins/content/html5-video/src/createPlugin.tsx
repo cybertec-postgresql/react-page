@@ -25,7 +25,7 @@ import Icon from '@material-ui/icons/PlayArrow';
 import {
   ContentPluginProps,
   ContentPluginConfig
-} from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+} from '@cybertec/react-page-core/lib/service/plugin/classes';
 import Html5Video from './Component';
 import { Html5VideoSettings } from './types/settings';
 import { Html5VideoProps } from './types/component';
@@ -59,7 +59,7 @@ const createPlugin: (
     handleFocusPreviousHotKey: rejectPromise,
     createInitialState: () => ({
       url: '',
-    }),
+    })
   };
 };
 

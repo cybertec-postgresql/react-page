@@ -22,11 +22,11 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import PluginService from '@cybertec/ory-editor-core/lib/service/plugin';
-import { editable as reducer } from '@cybertec/ory-editor-core/lib/reducer/editable';
-import { Cell, Row, Layout, Content } from '@cybertec/ory-editor-core/lib/types/editable';
-import { Plugins } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
-import { EditableType } from '@cybertec/ory-editor-core/lib/types/editable';
+import PluginService from '@cybertec/react-page-core/lib/service/plugin';
+import { editable as reducer } from '@cybertec/react-page-core/lib/reducer/editable';
+import { Cell, Row, Layout, Content } from '@cybertec/react-page-core/lib/types/editable';
+import { Plugins } from '@cybertec/react-page-core/lib/service/plugin/classes';
+import { EditableType } from '@cybertec/react-page-core/lib/types/editable';
 
 const gridClass = (size: number = 12): string =>
   `ory-cell-sm-${size} ory-cell-xs-12`;

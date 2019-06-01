@@ -1,9 +1,9 @@
 {
-  "name": "@cybertec/ory-editor-core",
+  "name": "@cybertec/react-page-core",
   "version": "0.0.0",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
-  "author": "Cybertec Schönig & Schönig GmbH",
+  "author": "ORY GmbH",
   "license": "GNU Lesser General Public License v3.0",
   "scripts": {
     "transpile": "babel ./src --out-dir lib --source-maps --copy-files --only **/*.ts,**/*.tsx --extensions .ts,.tsx --ignore **/*.d.ts",

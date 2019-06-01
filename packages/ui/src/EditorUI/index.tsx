@@ -26,8 +26,8 @@ import { createStructuredSelector } from 'reselect';
 
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { Editor, Editable } from '@cybertec/ory-editor-core/lib';
-import { isInsertMode } from '@cybertec/ory-editor-core/lib/selector/display';
+import { Editor, Editable } from '@cybertec/react-page-core/lib';
+import { isInsertMode } from '@cybertec/react-page-core/lib/selector/display';
 
 import Provider, { ProviderProps, WidgetGroup }  from '../Provider/index';
 

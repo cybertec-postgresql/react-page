@@ -1,4 +1,4 @@
-import { Migration } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { Migration } from '@cybertec/react-page-core/lib/service/plugin/classes';
 import rename from 'deep-rename-keys';
 const migration = new Migration({
   toVersion: '0.0.2',

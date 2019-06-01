@@ -1,8 +1,8 @@
 import { BackgroundRendererProps } from './renderer';
 import { BackgroundControlsProps } from './controls';
-import { ContentPluginConfig } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
-import { RGBColor } from '@cybertec/ory-editor-ui/lib/ColorPicker';
-import { ImageUploadType } from '@cybertec/ory-editor-ui/lib/ImageUpload';
+import { ContentPluginConfig } from '@cybertec/react-page-core/lib/service/plugin/classes';
+import { RGBColor } from '@cybertec/react-page-ui/lib/ColorPicker';
+import { ImageUploadType } from '@cybertec/react-page-ui/lib/ImageUpload';
 import { ModeEnum } from './modeEnum';
 
 export type BackgroundSettings = {

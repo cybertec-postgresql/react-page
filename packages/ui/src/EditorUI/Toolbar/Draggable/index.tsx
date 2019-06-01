@@ -21,17 +21,17 @@
  */
 
 import * as React from 'react';
-import { shouldPureComponentUpdate } from '@cybertec/ory-editor-core/lib/helper/shouldComponentUpdate';
+import { shouldPureComponentUpdate } from '@cybertec/react-page-core/lib/helper/shouldComponentUpdate';
 import { DragSource as dragSource } from 'react-dnd';
 import { source, collect } from './helper/index';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import { clearHover } from '@cybertec/ory-editor-core/lib/actions/cell/drag';
+import { clearHover } from '@cybertec/react-page-core/lib/actions/cell/drag';
 import {
   insertMode,
   editMode,
   layoutMode
-} from '@cybertec/ory-editor-core/lib/actions/display';
+} from '@cybertec/react-page-core/lib/actions/display';
 
 const instances = {};
 

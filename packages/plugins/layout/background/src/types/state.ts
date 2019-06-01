@@ -1,4 +1,4 @@
-import { RGBColor } from '@cybertec/ory-editor-ui/lib/ColorPicker';
+import { RGBColor } from '@cybertec/react-page-ui/lib/ColorPicker';
 import { Gradient } from './gradient';
 import { ModeEnum } from './modeEnum';
 

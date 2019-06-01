@@ -25,8 +25,8 @@ import Button from '../Button';
 
 import { connect } from 'react-redux';
 
-import { layoutMode } from '@cybertec/ory-editor-core/lib/actions/display';
-import { isLayoutMode } from '@cybertec/ory-editor-core/lib/selector/display';
+import { layoutMode } from '@cybertec/react-page-core/lib/actions/display';
+import { isLayoutMode } from '@cybertec/react-page-core/lib/selector/display';
 import { createStructuredSelector } from 'reselect';
 
 export interface InnerReduxProps {

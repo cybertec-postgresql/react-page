@@ -138,7 +138,7 @@ class Editor<T extends RootState = RootState> {
     forEach((editable: EditableType) => {
       if (!isProduction) {
         // tslint:disable-next-line:no-console
-        console.log(this.plugins.serialize(editable));
+        // console.log(this.plugins.serialize(editable));
       }
       // tslint:disable-next-line:no-any
       this.trigger.editable.update(this.plugins.serialize(editable) as any);

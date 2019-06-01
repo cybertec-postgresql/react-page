@@ -28,9 +28,9 @@ import Drawer from '@material-ui/core/Drawer';
 
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { isInsertMode } from '@cybertec/ory-editor-core/lib/selector/display';
-import { Editor } from '@cybertec/ory-editor-core/lib';
-import { Plugin } from '@cybertec/ory-editor-core/lib/service/plugin/classes';
+import { isInsertMode } from '@cybertec/react-page-core/lib/selector/display';
+import { Editor } from '@cybertec/react-page-core/lib';
+import { Plugin } from '@cybertec/react-page-core/lib/service/plugin/classes';
 
 import { WidgetGroup } from '../../Provider';
 
